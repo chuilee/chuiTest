@@ -5,21 +5,25 @@
 	<title>正则表达</title>
 	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
 	<script>
-		var string = "I like go go ol ol go go!";
+		var string = "I like go go go go go!";
 
-		var RE = /\b(\w+)\b\s+\1\b/;
-		var result = RE.exec( string );
-		console.log( result );
+		var RE1 = /\b(\w+)\b\s+\1\b/mg;
+		var result1 = RE1.exec( string );
+		console.log( result1 );
 
+		var RE2 = /(go)/mgi;
+		var result2 = RE2.exec( string );
+		console.log( result2 );
 	</script>
 </head>
 <body>
 	<div class="container">
 		<h1>RegExp</h1>
+		<code>https://msdn.microsoft.com/zh-cn/library/ae5bf541(VS.80).aspx</code>
 		<h2>后向引用<small> ?:,?|,?!,?=</small></h2>
 		<h3>描述</h3>
 		<blockquote>
-			<p>使用非捕获元字符 '?:', '?=', or '?!' 来忽略对这部分正则表达式的保存。所捕获的每个子匹配都按照在正则表达式模式中从左至右所遇到的内容存储。存储子匹配的缓冲区编号从 1 开始，连续编号直至最大 99 个子表达式。每个缓冲区都可以使用 '\n' 访问，其中 n 为一个标识特定缓冲区的一位或两位十进制数。 </p>
+			<p>当此字符紧随任何其他限定符（*、+、?、{n}、{n,}、{n,m}）之后时，匹配模式是“非贪心的”。“非贪心的”模式匹配搜索到的、尽可能短的字符串，而默认的“贪心的”模式匹配搜索到的、尽可能长的字符串。例如，在字符串“oooo”中，“o+?”只匹配单个“o”，而“o+”匹配所有“o”。</p>
 		</blockquote>
 			<dl>
 				<dt>(?:exp)</dt>
