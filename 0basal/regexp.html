@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达</title>
+	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+	<script>
+		var string = "I like go go ol ol go go!";
+
+		var RE = /\b(\w+)\b\s+\1\b/mgi;
+		var result = RE.exec( string );
+		console.log( result );
+
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>RegExp</h1>
+		<h2>后向引用<small> ?:,?|,?!,?=</small></h2>
+		<h3>描述</h3>
+		<blockquote>
+			<p>使用非捕获元字符 '?:', '?=', or '?!' 来忽略对这部分正则表达式的保存。所捕获的每个子匹配都按照在正则表达式模式中从左至右所遇到的内容存储。存储子匹配的缓冲区编号从 1 开始，连续编号直至最大 99 个子表达式。每个缓冲区都可以使用 '\n' 访问，其中 n 为一个标识特定缓冲区的一位或两位十进制数。 </p>
+		</blockquote>
+			<dl>
+				<dt>(?:exp)</dt>
+				<dd><p>匹配exp,不捕获匹配的文本，也不给此分组分配组号</p></dd>
+				<dt>(?=exp)</dt>
+				<dd><p>匹配exp前面的位置</p></dd>
+			</dl>
+	</div>
+	
+</body>
+</html>
