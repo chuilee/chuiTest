@@ -7,7 +7,6 @@ define([
 	'common'
 ], function ($, _, Backbone, todosTemplate, Common) {
 	'use strict';
-
 	var TodoView = Backbone.View.extend({
 
 		tagName:  'li',

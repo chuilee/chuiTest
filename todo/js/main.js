@@ -22,6 +22,8 @@ require.config({
 	}
 });
 
-require( [ "backbone" ], function ( Backbone ) {
+require( [ "backbone", "views/todos" ], function ( Backbone, Todos ) {
+
+	new Todos();
 
 } )
