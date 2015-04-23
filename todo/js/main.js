@@ -6,7 +6,7 @@ require.config({
 		},
 		"backbone": {
 			deps:[ "jquery", "underscore" ],
-			exports: "backbone"
+			exports: "Backbone"
 		},
 		"backboneLocalstorage": {
 			deps: ['backbone'],
@@ -22,8 +22,8 @@ require.config({
 	}
 });
 
-require( [ "backbone", "views/todos" ], function ( Backbone, Todos ) {
-
-	new Todos();
-
+require( [ "backbone", "views/app", "routers/router" ], function ( Backbone, AppView, Workspace ) {
+	new AppView();
+	new Workspace();
+	Backbone.history.start();
 } )

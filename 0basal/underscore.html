@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>underscore笔记</title>
 	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+	<script src="../todo/bower_components/underscore/underscore.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -14,8 +15,20 @@
 		</blockquote>
 	</div>
 	<script>
+	var collection = [
+		{ name: "tom", isAnimal: true },
+		{ name: "jimmy", isAnimal: true },
+		{ name: "lucy", isAnimal: false },
+		{ name: "lily", isAnimal: false }
+	]
 	var a = void 0;
 	console.log( a === undefined );
+
+	var animal = _.filter( collection, function ( item ) {
+		return item.isAnimal
+	} );
+	console.log( animal );
+
 	</script>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Events</title>
+	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+		<h1>Events</h1>
+
+		<h2>e.which与e.keyCode</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>浏览器</th>
+					<td>keydown</td>
+					<td>keyup</td>
+					<td>keypress</tr>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>IE <small>event.xxx</small></th>
+					<td>keyCode=按键码 <br>which=undefined <br>chartCode=undefined</td>
+					<td>keyCode=按键码 <br>which=undefined <br>chartCode=undefined</td>
+					<td>keyCode=字符码 <br>which=undefined <br>chartCode=undefined</td>
+				</tr>
+				<tr>
+					<th>Firfox <small>e.xxx</small></th>
+					<td>keyCode=0 <br>which=按键码 <br>chartCode=0</td>
+					<td>keyCode=0 <br>which=按键码 <br>chartCode=0</td>
+					<td>keyCode=0 <br>which=字符码 <br>chartCode=字符码</td>
+				</tr>
+				<tr>
+					<th>Opera <small>e.xxx</small></th>
+					<td>keyCode=按键码 <br>which=按键码 <br>chartCode=undefined</td>
+					<td>keyCode=按键码 <br>which=按键码 <br>chartCode=undefined</td>
+					<td>keyCode=字符码 <br>which=字符码 <br>chartCode=undefined</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="text" id="test" placeholder="e.which与e.keyCode">
+	</div>
+	<script>
+		var test = document.getElementById('test');
+		test.onkeypress = function (e) {
+			var target = e || window.event
+			alert( "keyCode:"+target.keyCode+ "\n" + "which:" + target.which + "\n" + "chartCode:" + target.chartCode );
+		}
+	</script>
+</body>
+</html>

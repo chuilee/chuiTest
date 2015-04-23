@@ -1,6 +1,5 @@
 define( [ "underscore", "backbone" ], function ( _, Backbone ) {
-
-	var todo = Backbone.Model.extend( {
+	var Todo = Backbone.Model.extend( {
 
 		defaults: {
 			title: "",
@@ -15,6 +14,6 @@ define( [ "underscore", "backbone" ], function ( _, Backbone ) {
 
 	} );
 
-	return todo;
+	return Todo;
 
 } )

@@ -5,7 +5,7 @@ define([
 		"text!templates/todos.html",
 		"common"
 	], function ($, _, Backbone, todosTemplate, Common) {
-		console.log( Backbone )
+
 	var TodoView = Backbone.View.extend({
 
 		_template: _.template( todosTemplate ),
@@ -28,7 +28,7 @@ define([
 		},
 
 		render: function(){
-			this.$el.html( _template( this.model.toJSON() ) );
+			this.$el.html( this._template( this.model.toJSON() ) );
 			this.$el.toggleClass('completed', this.model.get('completed'));
 
 			this.toggleVisible();

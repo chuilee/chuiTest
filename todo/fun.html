@@ -28,6 +28,9 @@ console.log( pluck ) // ["chui", "jay", "tom"] </pre>
 			<h2>View</h2>
 			<dl class="dl-horizontal" id="infos">
 			</dl>
+			<h2>Routers</h2>
+			<a href="#link1">link1</a><a href="#link2">link2</a><a href="#link3">link3</a>
+			<a href="#link4">link4</a>
 		</div>
 		<script type="text/template" id="template">
 				<dt> Name: </dt>
@@ -73,12 +76,15 @@ console.log( pluck ) // ["chui", "jay", "tom"] </pre>
 
 			// Collection
 			var students = new Backbone.Collection([
-					{ name: "chui" },
-					{ name: "jay" },
-					{ name: "tom" }
+					{ name: "chui", isChinese: true },
+					{ name: "jay", isChinese: true },
+					{ name: "tom", isChinese: false }
 				]);
 			var pluck = students.pluck( "name" );
 			console.log( pluck );
+
+			var chinese = students.trigger( "filter" );
+			console.log( chinese )
 
 			// View 
 			var Infos = Backbone.View.extend( {
@@ -104,6 +110,40 @@ console.log( pluck ) // ["chui", "jay", "tom"] </pre>
 				model: objInfo,
 				el: $( "#infos" )
 			});
+
+			// Router
+
+			var Workspace = Backbone.Router.extend( {
+
+				routes: {
+					":link": "page"
+				},
+
+				page: function( target ){
+
+					switch( target ){
+
+						case "link1":
+							console.log( "link1" );
+							break;
+						case "link2":
+							console.log( "link2" );
+							break;
+						case "link3":
+							console.log( "link3" );
+							break;
+						default:
+							console.log( "others" );
+
+					}
+
+				}
+
+			} );
+
+			var link = new Workspace();
+
+			Backbone.history.start();
 
 		} )
 		</script>

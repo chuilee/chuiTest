@@ -1,6 +1,6 @@
 define( [ "underscore", "backbone", "backboneLocalstorage", "models/todo" ], function ( _, Backbone, Store, todo ) {
 
-	var todosCollection = Backbone.Collections.extend({
+	var todosCollection = Backbone.Collection.extend({
 
 		model: todo,
 
