@@ -21,6 +21,7 @@ define( [
 			},
 
 			initialize: function(){
+				console.log( this )
 				this.allCheckbox = this.$('#toggle-all')[0];
 				this.$input = this.$('#new-todo');
 				this.$footer = this.$('#footer');
