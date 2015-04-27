@@ -13,6 +13,10 @@
 		<blockquote>
 			<code>void 0 === undefined</code>	
 		</blockquote>
+		<h2>+str</h2>
+		<blockquote>
+			将其它类型转换为number类型	
+		</blockquote>
 	</div>
 	<script>
 	var collection = [
@@ -28,6 +32,32 @@
 		return item.isAnimal
 	} );
 	console.log( animal );
+
+
+	var i = 0;
+	var str = false;
+	var Obj = new Object();
+	Obj.name = "test";
+	Obj.age = "45";
+
+	for( var key in Obj ){
+		if( Obj.hasOwnProperty( key ) ){
+			i++;
+			console.log( key + " : "  + Obj[key] )
+		}else {
+			str = key + " \n;"
+		}
+	}
+
+	console.log( typeof +str );
+	console.log( i,Obj );
+
+	var _Obj = _( {name: "_Obj"} );
+	console.log( _Obj._wrapped )
+
+	_.each( collection, function( item, key, list ){
+		return "1111"
+	} )
 
 	</script>
 </body>
