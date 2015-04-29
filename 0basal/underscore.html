@@ -51,13 +51,19 @@
 
 	console.log( typeof +str );
 	console.log( i,Obj );
+	var testObj = {name: "_Obj"};
 
-	var _Obj = _( {name: "_Obj"} );
-	console.log( _Obj._wrapped )
+	console.log( testObj instanceof _ );
 
-	_.each( collection, function( item, key, list ){
-		return "1111"
-	} )
+	testObj = _( testObj );
+
+	testObj.age = 123;
+
+	_( testObj );
+
+	console.log( testObj )
+
+	
 
 	</script>
 </body>
