@@ -1,0 +1,116 @@
+@-webkit-keyframes gear-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+@keyframes gear-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+.gear-rotate {
+  width: 2em;
+  height: 2em;
+  background: #2C2C2C;
+  position: relative;
+  border-radius: 1em;
+  -webkit-animation: gear-rotate 1s linear infinite;
+          animation: gear-rotate 1s linear infinite;
+}
+.gear-rotate::before {
+  width: 2.8em;
+  height: 2.8em;
+  background: linear-gradient(0deg, transparent 39%, #2c2c2c 39%, #2c2c2c 61%, transparent 61%), linear-gradient(60deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%), linear-gradient(120deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%);
+  position: absolute;
+  content: "";
+  top: -0.4em;
+  left: -0.4em;
+  border-radius: 1.4em;
+}
+.gear-rotate::after {
+  width: 1em;
+  height: 1em;
+  background: #EEEEEE;
+  position: absolute;
+  content: "";
+  top: .5em;
+  left: .5em;
+  border-radius: .5em;
+}
+@-webkit-keyframes two-gears-rotate-top {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+  }
+}
+@keyframes two-gears-rotate-top {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+  }
+}
+@-webkit-keyframes two-gears-rotate-bottom {
+  0% {
+    -webkit-transform: rotate(30deg);
+  }
+  100% {
+    -webkit-transform: rotate(210deg);
+  }
+}
+@keyframes two-gears-rotate-bottom {
+  0% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  100% {
+    -webkit-transform: rotate(210deg);
+            transform: rotate(210deg);
+  }
+}
+.two-gears-rotate:before,
+.two-gears-rotate:after {
+  /* autoprefixer: off */
+  width: 2em;
+  height: 2em;
+  content: "";
+  display: block;
+  background: -webkit-radial-gradient(center, #eeeeee 25%, #2c2c2c 25%, #2c2c2c 55%, transparent 55%), -webkit-linear-gradient(0deg, transparent 39%, #2c2c2c 39%, #2c2c2c 61%, transparent 61%), -webkit-linear-gradient(60deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%), -webkit-linear-gradient(120deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%);
+  background: -moz-radial-gradient(center, #eeeeee 25%, #2c2c2c 25%, #2c2c2c 55%, transparent 55%), -moz-linear-gradient(0deg, transparent 39%, #2c2c2c 39%, #2c2c2c 61%, transparent 61%), -moz-linear-gradient(60deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%), -moz-linear-gradient(120deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%);
+  background: -o-radial-gradient(center, #eeeeee 25%, #2c2c2c 25%, #2c2c2c 55%, transparent 55%), -o-linear-gradient(0deg, transparent 39%, #2c2c2c 39%, #2c2c2c 61%, transparent 61%), -o-linear-gradient(60deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%), -o-linear-gradient(120deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%);
+  background: -ms-radial-gradient(center, #eeeeee 25%, #2c2c2c 25%, #2c2c2c 55%, transparent 55%), -ms-linear-gradient(0deg, transparent 39%, #2c2c2c 39%, #2c2c2c 61%, transparent 61%), -ms-linear-gradient(60deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%), -ms-linear-gradient(120deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%);
+  background: radial-gradient(center, #eeeeee 25%, #2c2c2c 25%, #2c2c2c 55%, transparent 55%), linear-gradient(0deg, transparent 39%, #2c2c2c 39%, #2c2c2c 61%, transparent 61%), linear-gradient(50deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%), linear-gradient(120deg, transparent 42%, #2c2c2c 42%, #2c2c2c 58%, transparent 58%);
+  border-radius: 1em;
+  font-size: 0.5em;
+  position: absolute;
+}
+.two-gears-rotate {
+  font-size: 20px;
+  width: 2em;
+  height: 2em;
+  position: relative;
+}
+.two-gears-rotate:before {
+  -webkit-animation: 1s two-gears-rotate-top steps(20) infinite;
+  animation: 1s two-gears-rotate-top steps(20) infinite;
+}
+.two-gears-rotate:after {
+  top: 1.8em;
+  -webkit-animation: 1s two-gears-rotate-bottom steps(20) infinite;
+  animation: 1s two-gears-rotate-bottom steps(20) infinite;
+}
