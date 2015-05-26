@@ -90,3 +90,14 @@
 	-moz-animation: 1s two-gears-rotate-bottom steps(20) infinite;
 	animation: 1s two-gears-rotate-bottom steps(20) infinite;
 }
+
+//@less
+
+@base: 10%;
+@list: @base / 4;
+@color: #888;
+@light-color: @color + #222;
+span {
+	width: @list;
+	color: @light-color;
+}

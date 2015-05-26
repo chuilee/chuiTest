@@ -114,3 +114,7 @@
   -webkit-animation: 1s two-gears-rotate-bottom steps(20) infinite;
   animation: 1s two-gears-rotate-bottom steps(20) infinite;
 }
+span {
+  width: 2.5%;
+  color: #aaaaaa;
+}
