@@ -1,3 +1,6 @@
+div[class^="col-"] div {
+  margin: 0 auto;
+}
 @-webkit-keyframes gear-rotate {
   0% {
     -webkit-transform: rotate(0deg);
@@ -50,9 +53,11 @@
 @-webkit-keyframes two-gears-rotate-top {
   0% {
     -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
   }
 }
 @keyframes two-gears-rotate-top {
@@ -68,9 +73,11 @@
 @-webkit-keyframes two-gears-rotate-bottom {
   0% {
     -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
   }
   100% {
     -webkit-transform: rotate(210deg);
+            transform: rotate(210deg);
   }
 }
 @keyframes two-gears-rotate-bottom {
@@ -114,7 +121,33 @@
   -webkit-animation: 1s two-gears-rotate-bottom steps(20) infinite;
   animation: 1s two-gears-rotate-bottom steps(20) infinite;
 }
-span {
-  width: 2.5%;
-  color: #aaaaaa;
+.pencil {
+  position: relative;
+  margin: 20px auto !important;
+  width: 3em;
+  height: .6em;
+  background: #333;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.pencil:before {
+  position: absolute;
+  display: block;
+  content: " ";
+  top: 0;
+  left: -0.8em;
+  width: .6em;
+  height: .6em;
+  border-radius: .2em;
+  background: linear-gradient(90deg, #333333 33%, transparent 34%, #333333 34%, transparent 67%, #333333 68%);
+}
+.pencil:after {
+  position: absolute;
+  display: block;
+  content: " ";
+  right: -1.45em;
+  width: 0;
+  height: 0;
+  border: .345em solid transparent;
+  border-left: 1em solid #333;
 }
