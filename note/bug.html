@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>BUG</title>
+	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+	<h1>BUG</h1>
+	<h2>1.ie7下，js hover出现类似冒泡行为；</h2>
+	<blockquote>
+		<p>这种并不是JS鼠标事件上冒泡行为，实则是css样式引起的；父div下子节点有绝对定位或者相对定位，但父div并没有设置背景。则导致父层没有layout.</p>
+		<p>解决方法：设置父div的背景。</p>
+	</blockquote>
+	<h2>2.将IE8+改成IE7的渲染模式；</h2>
+	<blockquote>
+		<code>&lt;meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /&gt;</code>
+	</blockquote>
+	<h2>3.ie7下，父div设置overflow:auto,子节点下有浮动，relative相对定位，导致超出的内容浮动在父div上面，并且scroll动作，里面的内容不会跟着滚动；</h2>
+	<blockquote>
+		解决方法：去掉子节点的relative相对定位。
+	</blockquote>
+	<h2>4.IE6,IE7下的躲猫猫bug </h2>
+	<blockquote>
+		描述：浮动元素撑破了父元素，后面紧跟着不浮动的元素，当鼠标移到有hover事件（包括js鼠标事件）的元素上时，会出现浮动元素隐藏起来；<br>
+		解决方法：给外面的父元素设置一个宽度，我用的是 设置*min-width:1%。
+	</blockquote>
+</div>
+	
+</body>
+</html>
