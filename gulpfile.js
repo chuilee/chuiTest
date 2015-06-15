@@ -6,14 +6,14 @@ var connect = require( "gulp-connect" );
 
 // 配置变量
 var cj_config = {
-  html : "./chuijs/**/*.html",
-  jsSrc : "./chuijs/assets/js",
-  cssSrc : "./chuijs/assets/css/",
-  lessSrc : "./chuijs/assets/less/",
-  js : "./chuijs/assets/js/*.js",
-  less : "./chuijs/assets/less/*/*.less",
-  css : "./chuijs/assets/css/*/*.css",
-  compile_less: [ "./chuijs/assets/less/chui.less", "./chuijs/assets/less/onediv.less" ]
+  html : "./**/*.html",
+  jsSrc : "./assets/js",
+  cssSrc : "./assets/css/",
+  lessSrc : "./assets/less/",
+  js : "./assets/js/*.js",
+  less : "./assets/less/*/*.less",
+  css : "./assets/css/*/*.css",
+  compile_less: [ "./assets/less/chui.less", "./assets/less/onediv.less" ]
 }
 
 
@@ -21,7 +21,7 @@ var cj_config = {
 gulp.task( "connect", function() {
 
   connect.server({
-    root: "chuijs",
+    root: "./",
     livereload: true,
     port: 8000
   });
@@ -43,10 +43,10 @@ gulp.task( "less", function(){
     .pipe( less({
       plugins: [ autoprefix ]
     }) )
-    .pipe( gulp.dest( "./chuijs/assets/css" ) )
+    .pipe( gulp.dest( "./assets/css" ) )
     .pipe( minifyCSS() )
     .pipe( rename( { extname: ".min.css" } ) )
-    .pipe( gulp.dest( "./chuijs/assets/css/mins/" ) )
+    .pipe( gulp.dest( "./assets/css/mins/" ) )
     .pipe( connect.reload() );
 
 } );

@@ -27,6 +27,16 @@
 		描述：浮动元素撑破了父元素，后面紧跟着不浮动的元素，当鼠标移到有hover事件（包括js鼠标事件）的元素上时，会出现浮动元素隐藏起来；<br>
 		解决方法：给外面的父元素设置一个宽度，我用的是 设置*min-width:1%。
 	</blockquote>
+	<h2>5.不同浏览器下获取滚动条高度 </h2>
+	<pre>
+var scrollTop = 0;  // scrollLeft 距离左侧滚动条宽度
+
+if (document.documentElement && document.documentElement.scrollTop) {
+    scrollTop = document.documentElement.scrollTop; // IE9以下
+} else if (document.body) {
+    scrollTop = document.body.scrollTop; // IE10+,firefox, chrome
+}
+	</pre>
 </div>
 	
 </body>
