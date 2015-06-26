@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>移动开发笔记</title>
+	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+	<h1>移动开发笔记</h1>
+	<h2>1.mui中 table-view-cell 中 a标签下不能有mui-btn，否则会引起 <code>a:active</code>失效</h2>
+	<blockquote>
+	<pre>
+ul.mui-table-view
+	li.mui-table-view-cell.mui-media
+		a>button.mui-btn(会致a:active失效)
+	</pre>
+	<p>解决方法：使用自定义btn,并且用button标签，可以避免点击btn的时候，触发<code>a:active</code></p>
+	</blockquote>
+</div>
+	
+</body>
+</html>
