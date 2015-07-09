@@ -1,0 +1,33 @@
+{
+  "name": "AVTUI",
+  "version": "0.0.0",
+  "authors": [
+    "chuilee <chui.lee8@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "www.chui1900.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  },
+  "description": "build on MUI",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "devDependencies": {
+    "sass-mediaqueries": "~1.5.1",
+    "andy": "~1.0.4",
+    "foundation": "~5.5.2",
+    "zepto": "~1.1.6",
+    "animate-sass": "~0.6.4"
+  }
+}

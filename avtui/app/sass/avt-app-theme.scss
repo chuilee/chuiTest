@@ -1,0 +1,499 @@
+// 基本颜色
+$color-red: rgb(241,57,57);
+$color-white: rgb(255,255,255);
+$color-green: rgb(78,186,111);
+$color-red-light: rgb(245,101,93);
+$color-blue-light: rgb(34,179,224);
+$color-yellow-light: rgb(255,142,7);
+$color-grey: rgb(173,173,173);
+$color-grey-light: rgb(247,247,247);
+
+// 字体
+$font-size-10: 10px !default;		
+$font-size-12: 12px !default;			
+$font-size-14: 14px !default;			
+$font-size-16: 16px !default;			
+$font-size-20: 20px !default;
+
+$font-color-base: rgb(74,74,74);	
+$font-color-active: $color-red; 	
+
+
+html, body {
+	position: relative;
+	height: 100%;
+	font-size: 100%;
+	background-color: #ededed; 
+	color: $font-color-base;
+	overflow: auto;
+}
+
+body {
+	padding-top: 2.75rem;
+	padding-bottom: 0.625rem;
+
+	&.has-bottom-bar {
+		padding-bottom: 4rem;
+	}
+}
+/* 顶部工具栏 */
+$bar-bg: $color-red;
+$bar-font-color: $color-white;
+
+.avt-bar {
+	&.mui-bar {
+		height: 2.75rem;
+		background-color: $bar-bg;
+		box-shadow: none;
+
+		.mui-title {
+			font-size: 1rem;
+			font-weight: normal;
+			line-height: 2.75rem;
+			color: $bar-font-color;
+			border-bottom: 0;
+
+			.mui-icon {
+				padding-right: 0;
+				padding-left: 0;
+			}
+		}
+
+		a {
+			color: $bar-font-color;
+		}
+
+		.mui-icon {
+			padding-top: 0.75rem;
+			padding-bottom: 0.75rem;
+			padding-right: 1rem;
+			padding-left: 1rem;
+			font-size: 1.25rem;
+		}
+	}
+}
+
+/* banner 广告图 */
+#banner-container {
+	overflow: hidden;
+
+	.banner-img {
+		display: block;
+		width: 100%;
+		height: 4.875rem;
+		overflow: hidden;
+		text-align: center;
+
+		img {
+			height: 100%;
+		}
+	}
+}
+
+/* 目录分类 */
+#category {
+	background-color: #fff;
+	border-bottom: 1px solid $color-grey;
+	@extend %clearfix;
+
+	.item {
+		padding-top: .75rem;
+		text-align: center;
+			
+		&:active {
+			background: $color-grey-light;
+		}
+
+		.avt-category-icon,
+		.text {
+			display: block;
+			margin: auto;
+			clear: both;
+		}
+
+		.avt-category-icon {
+			@include size(2.8125rem,2.8125rem);
+			@include border-radius-separate(50%,50%,50%,50%);
+			background-color: $color-green;
+			color: #fff;
+		} 
+		.avt-category-icon-yue {
+			background-color: $color-green;
+		}
+		.avt-category-icon-chuang {
+			background-color: $color-red-light;
+		}
+		.avt-category-icon-xiang {
+			background-color: $color-blue-light;
+		}
+		.avt-category-icon-dny {
+			background-color: $color-yellow-light;
+		}
+		.avt-category-icon-western {
+			background-color: $color-blue-light;
+		}
+		.avt-category-icon-japan {
+			background-color: $color-yellow-light;
+		}
+		.avt-category-icon-huoguo {
+			background-color: $color-red-light;
+		}
+		.avt-category-icon-other {
+			background-color: $color-green;
+		}
+
+		.text {
+			text-align: center;
+			@include fontsize(14px); 
+			line-height: 2.4;
+			color: $font-color-base;
+		}
+	}
+}
+
+/* avt-panel 组件 */
+.avt-panel {
+	margin-top: .625rem;
+	border-top: 1px solid $color-grey;
+	border-bottom: 1px solid $color-grey;
+	.avt-panel-header {
+		height: 2.625rem;
+		line-height: 2.625rem;
+		background-color: $color-grey-light;
+		@include fontsize(14px);
+
+		h2 {
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-left: .625rem;
+			line-height: 2.625rem;
+			@include fontsize(14px);
+		}
+	}
+}
+
+/* avt-table-view 商品列表 */
+.avt-table-view {
+
+	&.mui-table-view {
+
+		.mui-table-view-cell {
+			padding: .6875rem .9375rem;
+
+			&:after {
+				right: .625rem;
+				left: .625rem;
+			}
+
+			> a:not(.mui-btn) {
+				margin: -0.6875rem -0.9375rem;
+				
+				&:active {
+					background: $color-grey-light;
+				}
+			}
+
+			&:last-child:after {
+				background: none;
+			}
+		}
+
+		.mui-media-object {
+			max-width: 4.625rem;
+			height: 4.625rem;
+			line-height: 4.625rem;
+
+			&.mui-pull-left {
+				margin-right: .625rem;
+			}
+		}
+
+		&:after {
+			background: none;
+		}
+	}
+
+	.restaurant-name {
+		@include fontsize(14px);
+		white-space: normal;
+
+		.mui-badge {
+			margin-left: .3125rem;
+			border-radius: 0;
+			font-weight: normal;
+		}
+	}
+	.avt-list-rightInfos {
+		margin-top: -4.375rem;
+		width: 4.0625rem;
+		
+		.btns {
+			text-align: center;
+			.mui-icon {
+				padding: .4125rem .4125rem;
+				@include fontsize(20px);
+			}
+		}
+		.distance {
+			margin-top: 1.1rem; 
+			text-align: center; 
+			@include fontsize(12px);
+		}
+	}
+	.restaurant-info {
+		padding-right: 4.0625rem;
+		width: 100%;
+		overflow: hidden;
+	}
+}
+.avt-grade {
+	.star,
+	.number {
+		display: block;
+	}
+
+	.star {
+		@include fontsize(14px);
+
+		em {
+			font-style: normal;
+		}
+	}
+
+	.number {
+		@include fontsize(12px);
+	}
+}
+.avt-control-content { display: none;}
+
+/* avt-tab-nav */
+.avt-segmented-control {
+
+	&.mui-segmented-control {
+		border: 0;
+		
+		.mui-control-item {
+			border-left: 0;
+			color: $font-color-base;
+			border-bottom: 2px solid transparent;
+			line-height: 2.5rem;
+
+			&.mui-active {
+				background: none;
+				color: $font-color-active;
+				border-bottom: 2px solid $font-color-active;
+			}
+		}
+	}
+
+}
+
+/* avt-bar-tab */
+.avt-bar-tab {
+
+	&.mui-bar-tab {
+		height: 3.5rem;
+
+		.mui-tab-item.mui-active {
+			color: $font-color-active;
+		}
+	}
+
+}
+
+/* 餐厅点菜 */
+.avt-panel-category {
+	position: relative;
+	margin-top: 0;
+	border-top: 0;
+	.avt-panel-header {
+		position: relative;
+		top: 0;
+		// border-bottom: 1px solid $color-grey;
+
+		.mui-control-item:not(:last-child) {
+			position: relative;
+			&:after {
+				position: absolute;
+				content: " ";
+				display: block;
+				width: 1px;
+				background-color: $color-grey;
+				top: .8rem;
+				bottom: .8rem;
+				right: 0;
+			}
+		}
+	}
+	.avt-panel-body {
+		margin-top: 3.375rem;
+	}
+}
+.category-list {
+	margin-top: .625rem;
+
+	.avt-table-view {
+		.avt-list-rightInfos {
+			width: 2.5rem;
+			text-align: center;			
+		}
+	}
+}
+
+#categoryList {
+	display: none;
+	position: fixed;
+	top: 8.625rem;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 5.625rem;
+	z-index: 1001;
+	border-right: 1px solid lighten($color-grey, 20%);
+	background:lighten($color-grey, 30%);
+	
+	li {
+		display: block;
+		list-style: none;
+		text-align: center;
+		padding-top: .75rem;
+		padding-bottom: .75rem;
+		border-bottom: 1px solid lighten($color-grey, 20%);
+
+		&.state-active {
+			background: lighten($color-red, 30%);
+			border-bottom-color: $color-grey;
+		}
+
+		a {
+			font-size: .875rem;
+			color: $font-color-base;
+		}
+	}
+}
+
+.category-header {
+	position: fixed;
+	top: 6rem;
+	height: 2.625rem;
+	width: 100%;
+	border-top: 1px solid $color-grey;
+	border-bottom: 1px solid $color-grey;
+	background-color: lighten($color-grey, 28%);
+	z-index: 99;
+	.mui-btn {
+		height: 100%;
+		width: 5.625rem;
+		border-top: 0;
+		border-bottom: 0;
+		border-radius: 0;
+		background: lighten($color-grey, 19%);
+	}
+	.title {
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-left: 5.625rem;
+		line-height: 2.625rem;
+		font-size: 1rem;
+		text-align: center;
+	}
+}
+
+.avt-price {
+	display: block;
+	font-size: .75rem;
+	color: $font-color-base;
+
+	em {
+		font-style: normal;
+		color: $font-color-active;
+		font-size: 1.125rem;
+	}
+}
+
+.avt-btn-addCart {
+	margin-top: 1.4rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	@include radius(50%);
+	@include size(2rem, 2rem);
+	font-size: 1.6rem;
+	line-height: 1.6rem;
+	color: $font-color-active;
+	font-weight: bold;
+}
+
+#myOrdered {
+	position: absolute;
+	left: 1rem;
+	bottom: 1rem;	
+	@include size(3.375rem, 3.375rem);
+	@include radius(50%);
+	color: $color-white;
+	text-align: center;
+	line-height: 4rem;
+	background: rgba($color-yellow-light, .9);
+	z-index: 9999;
+	.mui-icon {
+	}
+	.mui-badge {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
+
+.avt-panel-restaurant {
+	margin-top: 0;
+	border-top: 0;
+	.avt-panel-header {
+		position: fixed;
+		top: 2.75rem;
+		border-bottom: 1px solid $color-grey;
+		z-index: 99;
+
+		.mui-control-item:not(:last-child) {
+			position: relative;
+			&:after {
+				position: absolute;
+				content: " ";
+				display: block;
+				width: 1px;
+				background-color: $color-grey;
+				top: .8rem;
+				bottom: .8rem;
+				right: 0;
+			}
+		}
+	}
+	.avt-panel-body {
+		margin-top: 2.625rem;
+	}
+}
+
+/* 绝对定位容器 提供区域滚动*/
+.avt-scroll-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+	
+	&.category-scroll-container {
+		top: 5.4375rem;
+
+		.category-scroll {
+			position: absolute;
+			top: 2.625rem;
+			
+			.avt-table-view {
+				margin-bottom: .625rem;
+				border-bottom: 1px solid $color-grey;
+			}
+		}
+	}
+}
+
