@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" data-framework="backbonejs">
+	<head>
+		<meta charset="utf-8">
+		<title>backbone function test!</title>
+		<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+		<script src="../todo/bower_components/requirejs/require.js"></script>
+		
+
+	</head>
+	<body>
+		<div class="container">
+			<h1>Backbone</h1>
+			<h2>Events</h2>
+			<button class="btn btn-default" id="event"> Button </button>
+			<blockquote>
+				<p>Events 是一个可以融合到任何对象的模块, 给予 对象绑定和触发自定义事件的能力. Events 在绑定之前 不需要声明, 并且还可以传递参数. 比如:</p>
+			</blockquote>
+			<h2>Collection</h2>
+			<dl>
+				<dt>pluck</dt>
+				<dd>
+					<pre>
+var students = new Backbone.Collection([
+	{ name: "chui" },
+	{ name: "jay" },
+	{ name: "tom" }
+]);
+var pluck = students.pluck( "name" );
+console.log( pluck ) // ["chui", "jay", "tom"] </pre>
+				</dd>
+			</dl>
+			<h2>View</h2>
+			<dl class="dl-horizontal" id="infos">
+			</dl>
+			<h2>Routers</h2>
+			<a href="#link1">link1</a><a href="#link2">link2</a><a href="#link3">link3</a>
+			<a href="#link4">link4</a>
+		</div>
+		<script type="text/template" id="template">
+				<dt> Name: </dt>
+				<dd> <%= name %> </dd>
+				<dt> Age: </dt>
+				<dd> <%= age %> </dd>
+				<dt> From: </dt>
+				<dd> <%= country %> </dd>
+		</script>
+
+		<script>
+
+		require.config({
+			baseUrl: "../todo/bower_components",
+			paths: {
+				"backbone": "backbone/backbone",
+				"underscore": "underscore/underscore",
+				"jquery": "jquery/jquery"
+			},
+			shim: {
+				"backbone": {
+					deps: [ "jquery", "underscore" ],
+					exports: "Backbone"
+				}				
+			}
+
+		})
+
+		require( [ "backbone", "jquery" ], function( Backbone, $ ){
+
+			
+
+			// Model
+			var Info = Backbone.Model.extend({
+
+				defaults: {
+					name: "Chui",
+					age: 25,
+					country: "China"
+				}
+				
+			});
+
+			var objInfo = new Info();
+
+			// Collection
+			var students = new Backbone.Collection([
+					{ name: "chui", isChinese: true },
+					{ name: "jay", isChinese: true },
+					{ name: "tom", isChinese: false }
+				]);
+			var pluck = students.pluck( "name" );
+			console.log( pluck );
+
+			students.set( [ { name: "jay", isChinese: false }, { name: "delete", isChinese:true } ], { merge: true } );
+
+			students.each( function( model ){
+
+				console.log( model.get( "name" ) + " is chinese "+ model.get( "isChinese" ) );
+
+			} );
+
+
+			// View 
+			var Infos = Backbone.View.extend( {
+
+				_template: _.template( $( "#template" ).html() ),
+				
+				render: function(){
+
+					this.$el.html( this._template( this.model.toJSON() ) );
+					console.log( this.$el )
+				},
+
+				initialize: function(){
+
+					this.render();
+					
+
+				}
+
+			} );
+
+			var infos = new Infos({
+				model: objInfo,
+				el: $( "#infos" )
+			});
+
+			// Router
+			var Workspace = Backbone.Router.extend( {
+
+				routes: {
+					":link": "page"
+				},
+
+				page: function( target ){
+
+					switch( target ){
+
+						case "link1":
+							console.log( "link1" );
+							break;
+						case "link2":
+							console.log( "link2" );
+							break;
+						case "link3":
+							console.log( "link3" );
+							break;
+						default:
+							console.log( "others" );
+
+					}
+
+				}
+
+			} );
+
+			var link = new Workspace();
+
+			Backbone.history.start();
+
+			// Events
+			var man = { name: "Paul Walker", age: 38 };
+			var dispatcher = _.clone( Backbone.Events );
+			dispatcher.on( "alert", function(){
+				alert( this.name + " is " + this.age + " years old!" );					
+			}, man );
+
+			objInfo.on( "change:age", function(){
+				console.log( this.get( "age" ) );
+			} );
+			objInfo.set( { "age": 26 } );
+
+			$( "#event" ).click(function(){
+				dispatcher.trigger( "alert" )
+			})
+
+		} )
+		</script>
+	</body>
+</html>

@@ -1,7 +1,3 @@
-backbone_require
-bootstrap2
-bootstrap
-todo/bower_components
 node_modules
-avtui/bower_components
-avtui/app/mui/*
+bower_compontents
+**/**/*.zip

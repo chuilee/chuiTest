@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<title>CSS3</title>
+	<link rel="stylesheet" href="../bower_components/animate-css/animate.css">
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<style>
+		#chui-btn {
+			position: absolute;
+			top: 200px;
+			left: 100px;
+		}
+		.square {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: #f00;
+			z-index: 11;
+		}
+		.bottom {
+			bottom: 0;
+			z-index: 11;
+		}
+	</style>
+	<script>
+		jQuery(function(){
+			$("#chui-btn").click(function(){
+				var $animateTarget = $("#animate-div").addClass("animated");
+				if($animateTarget.hasClass("fadeInLeftBig")){
+					$animateTarget.removeClass("fadeInLeftBig").addClass("fadeOutLeftBig");
+				}else {
+					$animateTarget.removeClass("fadeOutLeftBig").addClass("fadeInLeftBig");
+				}
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="square" id="animate-div"></div>
+	<div class="square bottom"></div>
+	<button class="btn" id="chui-btn">开始运动</button>
+</body>
+</html>
