@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LESS</title>
+	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/mins/common.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>LESS</h1>
+		<h2>变量</h2>
+
+		<blockquote>
+
+			<a href="javascript:;">链接颜色</a><br>
+			<p>同一个文件中一个变量可以声明多次，跟css语法一样，最后面的会覆盖前面的。</p>
+		</blockquote>
+<pre>
+// 基本变量
+@link-color: #f00;
+@link-color: #0f0;
+// 主题
+a {
+color: @link-color; // #00f
+}
+@link-color: #00f;
+
+//结果是 #00f > #0f0 > #f00
+</pre>
+	</div>
+</body>
+</html>

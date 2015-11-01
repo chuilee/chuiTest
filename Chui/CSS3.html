@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3</title>
+	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/mins/chui.min.css">
+</head>
+<body>
+	<h1 class="page-title">CSS3</h1>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="transition"></div>
+			</div>
+			<div class="col-md-2">1</div>
+			<div class="col-md-2">2</div>
+			<div class="col-md-2">3</div>
+			<div class="col-md-2">4</div>
+			<div class="col-md-2">5</div>
+		</div>
+	</div>
+	<script>
+		var transition = document.querySelectorAll( ".transition" )[0];
+
+		transition.addEventListener( "mouseover", function () {
+			var _class = this.className;
+			var newclass = "";
+
+			newclass = _class.split( "," );
+			newclass.push( "hover" );
+			this.className = newclass.join( " " );
+
+		}, true );
+
+		transition.addEventListener( "mouseout", function () {
+			var _class = this.className;
+			var newclass = "";
+
+			newclass = _class.replace( "hover", "" );
+			this.className = newclass.replace( " ", "" );
+			
+		}, true );
+
+	</script>
+</body>
+</html>

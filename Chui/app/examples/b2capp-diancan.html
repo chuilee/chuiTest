@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AVTUI</title>
+   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   	<meta name="apple-mobile-web-app-title" content="AVTUI界面">
+    <link rel="stylesheet" href="../assets/css/avt-app.css">
+    <script src="../../../bower_components/zepto/zepto.min.js"></script>
+    <script src="../assets/js/mins/AVTUI.min.js"></script>
+    <script>
+    	$(function(){
+    		// avt tab 切换交互
+    		$(".avt-segmented-control").avtSegmentedControl();
+
+    		// 切换分类
+    		$("#js-btn-category").click(function(){
+    			var $category = $($(this).data("target"));
+
+    			$category.addClass("animated");
+    			if($category.hasClass("slideInLeft")){
+    				$category.removeClass("slideInLeft").addClass("slideOutLeft");
+    			}else{
+    				$category.show().removeClass("slideOutLeft").addClass("slideInLeft");
+    			}
+
+    			$(this).on("blur", function(){
+    				$category.removeClass("slideInLeft").addClass("slideOutLeft");
+    			})
+    		})
+    	});
+
+    </script>
+</head>
+
+<body>
+	<!-- 顶部栏目 -->
+	<header class="mui-bar mui-bar-nav avt-bar">
+		<a class="mui-icon mui-icon-left-nav mui-pull-left" onclick="javascript:history.go(-1);"></a>
+		<a class="mui-icon mui-icon-search mui-pull-right avt-search"></a>
+		<h1 class="mui-title avt-title">西安饭店</h1>
+	</header>
+	<!-- tab切换列表 -->
+	<div class="avt-panel avt-panel-category">
+		<div class="avt-panel-header">
+			<div class="mui-segmented-control avt-segmented-control">
+				<a class="mui-control-item mui-active" href="#item1mobile">点菜</a>
+				<a class="mui-control-item" href="#item2mobile">评价</a>
+				<a class="mui-control-item" href="#item3mobile">商家介绍</a>
+			</div>
+		</div>
+	</div>
+	<div class="avt-scroll-container category-scroll-container">
+		<div id="item1mobile" class="category-list avt-control-content category-scroll avt-scroll-container" style="display: block">
+			<div class="category-header clearfix">
+				<button class="mui-btn mui-pull-left" id="js-btn-category" data-target="#categoryList" type="button">分类<span class="mui-icon mui-icon-arrowdown"></span></button>
+				<h2 class="title">所有分类</h2>
+			</div>
+			<ul id="categoryList">
+				<li class="item state-active"><a href="javascript:;">招牌菜</a></li>
+				<li class="item"><a href="javascript:;">特价菜</a></li>
+			</ul>
+			<ul class="mui-table-view avt-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/shuijiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/muwu.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>	
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>	
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>	
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id="item2mobile" class="avt-control-content">
+			<ul class="mui-table-view avt-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/shuijiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/muwu.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>	
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>	
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>	
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id="item3mobile" class="avt-control-content">
+			<ul class="mui-table-view avt-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/shuijiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/muwu.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>	
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>	
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>	
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="#">
+						<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/yuantiao.jpg">
+						<div class="mui-media-body">
+							<div class="restaurant-info">
+								<h3 class="restaurant-name">猪手</h3>
+								<div class="avt-grade">
+									<span class="star"><em>4.0分</em></span>										
+								</div>
+								<span class="avt-price">￥<em>28</em>/份</span>
+							</div>
+							<div class="mui-pull-right avt-list-rightInfos">
+								<button class="mui-btn avt-btn-addCart"><span class="mui-icon mui-icon-plusempty"></span></button>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 已点菜单 -->
+	<div id="myOrdered">
+		<span class="mui-icon mui-icon-list"></span>
+		<span class="mui-badge mui-badge-danger">45</span>
+	</div>
+	
+</body>
+</html>

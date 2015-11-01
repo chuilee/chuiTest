@@ -1,0 +1,30 @@
+{
+  "name": "CHUIJS",
+  "version": "1.0.0",
+  "description": "chui program test",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-changed": "*",
+    "gulp-connect": "*",
+    "gulp-csso": "*",
+    "gulp-imagemin": "*",
+    "gulp-less": "*",
+    "gulp-minify-css": "*",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglyfly": "*",
+    "gulp.spritesmith": "*",
+    "less-plugin-autoprefix": "*",
+    "less-plugin-clean-css": "*",
+    "merge-stream": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chuilee",
+  "license": "ISC"
+}

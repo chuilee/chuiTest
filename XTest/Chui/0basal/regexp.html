@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达</title>
+	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+	<script>
+		var string = "I like go go go go little cake! fffffffffffuck?";
+		//(patter) 分组
+		var RE1 = new RegExp( "\\b(\\w+)\\b\\s+\\b(\\w+)\\b", "gi" );
+		var result1 = RE1.exec( string );
+		console.log( result1 );
+		var result1 = RE1.exec( string );
+		console.log( result1 );
+		// ?: 
+		var RE2 = new RegExp( "li(?:ke|ttle)", "gi" );
+		var result2 = RE2.exec( string );
+		console.log( result2 );
+		var result2 = RE2.exec( string );
+		console.log( result2 );
+		// ?=
+		var RE3 = new RegExp( "li(?=ke|ttle)", "gi" );
+		var result3 = RE3.exec( string );
+		console.log( result3 );
+		var result3 = RE3.exec( string );
+		console.log( result3 );
+		// ?!
+		var RE4 = new RegExp( "li(?!ke)", "gi");
+		var result4 = RE4.exec( string );
+		console.log( result4 );
+
+		var re = null, i;
+		for (var i = 0; i < 10; i++) {
+			re = /cat/g;
+			console.log( re.test( "catastrophe" ) );
+		};
+		for (var i = 0; i < 10; i++) {
+			re = new RegExp( "cat", "g" );
+			console.log( re.test( "catastrophe" ) );
+		};
+
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>RegExp</h1>
+		<a href="https://msdn.microsoft.com/zh-cn/library/28hw3sce(v=vs.80).aspx">https://msdn.microsoft.com/zh-cn/library/28hw3sce(v=vs.80).aspx</a>
+
+		<h2>正则表达式/pattern/与new实例对象的区别</h2>
+		<blockquote>
+			<code>var reg1 = /pattern/gi</code>与<code>var reg2 = new RegExp( "pattern","gi" )</code>在旧版本浏览器下两者是有区别的。前者是同一个实例对象，后是不同实例对象。新版本浏览器基本是相同的,IE9+...
+		</blockquote>
+		<pre>var re = null, i;
+
+for (var i = 0; i &lt; 10; i++) {
+re = /cat/g;
+console.log( re.test( "catastrophe" ) );
+};
+
+for (var i = 0; i &lt; 10; i++) {
+re = new RegExp( "cat", "g" );
+console.log( re.test( "catastrophe" ) );
+};</pre>
+
+		<h2>反向引用<small> ?:,?!,?=</small></h2>
+		<a href="https://msdn.microsoft.com/zh-cn/library/43k3181w(v=vs.80).aspx">https://msdn.microsoft.com/zh-cn/library/43k3181w(v=vs.80).aspx</a>
+		<h3>描述</h3>
+		<blockquote>
+			<p>正则表达式的最重要功能之一是存储匹配的模式的一部分以供以后重新使用的能力。您可能想起，若在正则表达式模式或模式的一部分两侧加上括号，就会导致表达式的一部分被存储到临时缓冲区中。可以通过使用非捕获元字符 ?:、?= 或 ?! 来重写捕获。</p>
+			<p>每个捕获的子匹配项按照它们在正则表达式模式中从左到右出现的顺序存储。缓冲区编号从 1 开始，最多可存储 99 个捕获的子表达式。可以使用 \n 来访问每个缓冲区，其中 n 是标识特定缓冲区的一位或两位十进制数字。</p>
+		</blockquote>
+			<dl>
+				<dt>(pattern)</dt>
+				<dd><p>匹配 pattern 并捕获该匹配的子表达式。可以使用 $0…$9 属性从结果“匹配”集合中检索捕获的匹配。若要匹配括号字符 ( )，请使用“\(”或者“\)”。</p>
+<pre>
+var string = "I like go go go go little cake! fffffffffffuck?";
+//(patter) 分组
+var RE1 = new RegExp( "\\b(\\w+)\\b\\s+\\b(\\w+)\\b", "gi" );
+var result1 = RE1.exec( string );
+console.log( result1 );
+var result1 = RE1.exec( string );
+console.log( result1 );
+</pre>
+				</dd>
+
+				<dt>(?:pattern)</dt>
+				<dd><p>匹配 pattern 但不捕获该匹配的子表达式，即它是一个非捕获匹配，不存储供以后使用的匹配。这对于用“or”字符 (|) 组合模式部件的情况很有用。例如，'industr(?:y|ies) 是比 'industry|industries' 更经济的表达式。</p>
+<pre>
+// ?: 
+var RE2 = new RegExp( "li(?:ke|ttle)", "gi" );
+var result2 = RE2.exec( string );
+console.log( result2 );
+var result2 = RE2.exec( string );
+console.log( result2 );
+</pre>
+				</dd>
+
+				<dt>(?=pattern)</dt>
+				<dd><p>执行正向预测先行搜索的子表达式，该表达式匹配处于匹配 pattern 的字符串的起始点的字符串。它是一个非捕获匹配，即不能捕获供以后使用的匹配。例如，'Windows (?=95|98|NT|2000)' 匹配“Windows 2000”中的“Windows”，但不匹配“Windows 3.1”中的“Windows”。预测先行不占用字符，即发生匹配后，下一匹配的搜索紧随上一匹配之后，而不是在组成预测先行的字符后。</p>
+<pre>
+// ?=
+var RE3 = new RegExp( "li(?=ke|ttle)", "gi" );
+var result3 = RE3.exec( string );
+console.log( result3 );
+var result3 = RE3.exec( string );
+console.log( result3 );
+</pre>
+				</dd>
+
+				<dt>(?!pattern)</dt>
+				<dd><p>执行反向预测先行搜索的子表达式，该表达式匹配不处于匹配 pattern 的字符串的起始点的搜索字符串。它是一个非捕获匹配，即不能捕获供以后使用的匹配。例如，'Windows (?!95|98|NT|2000)' 匹配“Windows 3.1”中的 “Windows”，但不匹配“Windows 2000”中的“Windows”。预测先行不占用字符，即发生匹配后，下一匹配的搜索紧随上一匹配之后，而不是在组成预测先行的字符后。</p>
+<pre>
+// ?!
+var RE4 = new RegExp( "li(?!ke)", "gi");
+var result4 = RE4.exec( string );
+console.log( result4 );
+</pre>
+				</dd>
+
+			</dl>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JAVASCRIPT,jQuery...</title>
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>JAVASCRIPT</h1>
+        <h2>1.框架元素iframe如何取父对象元素 jquery方法js原生方法</h2>
+        <blockquote>
+            js原生，在父窗口中获取iframe中的元素 <br>
+            格式：window.frames["iframe的name值"].document.getElementById(“iframe中控件的ID”); <br>
+            实例：window.frames["ifm"].document.getElementById(“btnOk”); js原生，在iframe中获取父窗口的元素 <br>
+            格式：window.parent.document.getElementById(“父窗口的元素ID”); <br>
+            实例：window.parent.document.getElementById(“btnOk”); <br>
+            jquery写法，在父窗口中获取iframe中的元素 <br>
+            方法一： 格式：$(“#iframe的ID”).contents().find(“#iframe中的控件ID”).click();//jquery <br>
+            方法1 实例：$(“#ifm”).contents().find(“#btnOk”);//jquery  <br>
+            方法1 方法二： 格式：$(“#iframe中的控件ID”,document.frames(“frame的name”).document);  <br>
+            实例：$(“#btnOk”,document.frames(“ifm”).document);  <br>
+            jquery写法，在iframe中获取父窗口的元素 格式：$(‘#父窗口中的元素ID’, parent.document);  <br>
+            实例：$(‘#btnOk’, parent.document);
+        </blockquote>
+    </div>
+</body>
+
+</html>

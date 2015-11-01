@@ -1,0 +1,25 @@
+html, body {
+	font-size: 62.5%;
+}
+.page-title {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid #eee;
+}
+
+/* test  */
+.transition {
+	.size( 100px );
+	background: #33cc11;
+	
+	transition: transform .2s ease-in .1s, background .2s ease-in .1s;
+
+	&.hover {
+		background: #00ee22;
+		-webkit-transform: rotate( 180deg );
+		   -moz-transform: rotate( 180deg );
+		    -ms-transform: rotate( 180deg );
+		     -o-transform: rotate( 180deg );
+		        transform: rotate( 180deg );
+	}
+}

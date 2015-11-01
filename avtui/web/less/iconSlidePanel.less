@@ -1,0 +1,128 @@
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+@panel-arrow-name: panel-arrow;
+@panel-arrow-x: 56px;
+@panel-arrow-y: 0px;
+@panel-arrow-offset-x: -56px;
+@panel-arrow-offset-y: 0px;
+@panel-arrow-width: 15px;
+@panel-arrow-height: 8px;
+@panel-arrow-total-width: 71px;
+@panel-arrow-total-height: 46px;
+@panel-arrow-image: '../imgs/slidePanel.png';
+@panel-arrow: 56px 0px -56px 0px 15px 8px 71px 46px '../imgs/slidePanel.png' panel-arrow;
+@xs-slide-down-active-name: xs-slideDown-active;
+@xs-slide-down-active-x: 0px;
+@xs-slide-down-active-y: 0px;
+@xs-slide-down-active-offset-x: 0px;
+@xs-slide-down-active-offset-y: 0px;
+@xs-slide-down-active-width: 18px;
+@xs-slide-down-active-height: 18px;
+@xs-slide-down-active-total-width: 71px;
+@xs-slide-down-active-total-height: 46px;
+@xs-slide-down-active-image: '../imgs/slidePanel.png';
+@xs-slide-down-active: 0px 0px 0px 0px 18px 18px 71px 46px '../imgs/slidePanel.png' xs-slideDown-active;
+@xs-slide-down-name: xs-slideDown;
+@xs-slide-down-x: 28px;
+@xs-slide-down-y: 0px;
+@xs-slide-down-offset-x: -28px;
+@xs-slide-down-offset-y: 0px;
+@xs-slide-down-width: 18px;
+@xs-slide-down-height: 18px;
+@xs-slide-down-total-width: 71px;
+@xs-slide-down-total-height: 46px;
+@xs-slide-down-image: '../imgs/slidePanel.png';
+@xs-slide-down: 28px 0px -28px 0px 18px 18px 71px 46px '../imgs/slidePanel.png' xs-slideDown;
+@xs-slide-up-active-name: xs-slideUp-active;
+@xs-slide-up-active-x: 0px;
+@xs-slide-up-active-y: 28px;
+@xs-slide-up-active-offset-x: 0px;
+@xs-slide-up-active-offset-y: -28px;
+@xs-slide-up-active-width: 18px;
+@xs-slide-up-active-height: 18px;
+@xs-slide-up-active-total-width: 71px;
+@xs-slide-up-active-total-height: 46px;
+@xs-slide-up-active-image: '../imgs/slidePanel.png';
+@xs-slide-up-active: 0px 28px 0px -28px 18px 18px 71px 46px '../imgs/slidePanel.png' xs-slideUp-active;
+@xs-slide-up-name: xs-slideUp;
+@xs-slide-up-x: 28px;
+@xs-slide-up-y: 28px;
+@xs-slide-up-offset-x: -28px;
+@xs-slide-up-offset-y: -28px;
+@xs-slide-up-width: 18px;
+@xs-slide-up-height: 18px;
+@xs-slide-up-total-width: 71px;
+@xs-slide-up-total-height: 46px;
+@xs-slide-up-image: '../imgs/slidePanel.png';
+@xs-slide-up: 28px 28px -28px -28px 18px 18px 71px 46px '../imgs/slidePanel.png' xs-slideUp;
+@spritesheet-width: 71px;
+@spritesheet-height: 46px;
+@spritesheet-image: '../imgs/slidePanel.png';
+@spritesheet-sprites: @panel-arrow @xs-slide-down-active @xs-slide-down @xs-slide-up-active @xs-slide-up;
+@spritesheet: 71px 46px '../imgs/slidePanel.png' @spritesheet-sprites;
+
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+*/
+.sprite-width(@sprite) {
+  width: extract(@sprite, 5);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 6);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 3);
+  @sprite-offset-y: extract(@sprite, 4);
+  background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.sprite-image(@sprite) {
+  @sprite-image: extract(@sprite, 9);
+  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+  background-image: url(@sprite-image-bare);
+}
+
+.sprite(@sprite) {
+  .sprite-image(@sprite);
+  .sprite-position(@sprite);
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
+  @sprite-name: extract(@sprite, 10);
+  .@{sprite-name} {
+    .sprite(@sprite);
+  }
+  .sprites(@sprites, @i + 1);
+}

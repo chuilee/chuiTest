@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>underscore笔记</title>
+	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+	<script src="../todo/bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>underscore笔记</h1>
+		<h2>void 0 的值是什么？</h2>
+		<blockquote>
+			<code>void 0 === undefined</code>	
+		</blockquote>
+		<h2>+str</h2>
+		<blockquote>
+			将其它类型转换为number类型	
+		</blockquote>
+	</div>
+	<script>
+	var collection = [
+		{ name: "tom", isAnimal: true },
+		{ name: "jimmy", isAnimal: true },
+		{ name: "lucy", isAnimal: false },
+		{ name: "lily", isAnimal: false }
+	]
+	var a = void 0;
+	console.log( a === undefined );
+
+	var animal = _.filter( collection, function ( item ) {
+		return item.isAnimal
+	} );
+	console.log( animal );
+
+
+	var i = 0;
+	var str = false;
+	var Obj = new Object();
+	Obj.name = "test";
+	Obj.age = "45";
+
+	for( var key in Obj ){
+		if( Obj.hasOwnProperty( key ) ){
+			i++;
+			console.log( key + " : "  + Obj[key] )
+		}else {
+			str = key + " \n;"
+		}
+	}
+
+	console.log( typeof +str );
+	console.log( i,Obj );
+	var testObj = {name: "_Obj"};
+
+	console.log( testObj instanceof _ );
+
+<<<<<<< HEAD
+	_.each( collection, function( item, key, list ){
+		item.age = 25;
+	} );
+	console.log( collection )
+=======
+	testObj = _( testObj );
+
+	testObj.age = 123;
+
+	_( testObj );
+
+	console.log( testObj )
+
+	// find
+	var arr = [ 2, 1, 4, 5 ];
+	var result1 = _.find(arr, function(value, index, list){
+		return value = 1;
+	});
+	var result2 = _.some(arr);
+	console.log( result2 );
+>>>>>>> 019a14882755c530af5e6dff08e62f58d1e84534
+
+	</script>
+</body>
+</html>
