@@ -1,9 +1,0 @@
-.avt-container {
-	width: 100%;
-}
-.clearfix {
-	@extend %clearfix;
-}
-.avt-col-4 {
-	@include col( $ratios: 1/4, $cycle: 4 );
-}
