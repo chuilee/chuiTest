@@ -1,172 +1,257 @@
 'use strict';
 // 公共模块
-var gulp = require('gulp');                         // gulp
-var connect = require('gulp-connect');              // server livereload
-var less = require('gulp-less');                    // less to css
-var minifyCSS = require('gulp-minify-css');         // cssmin
-var rename = require('gulp-rename');                // rename 
-var sourcemaps = require("gulp-sourcemaps");        // 文件地图
-var autoprefixer = require("gulp-autoprefixer");    // 自动添加前缀
-var spritesmith = require("gulp.spritesmith");      // 雪碧图
-var csso = require('gulp-csso');                    // 优化css
-var merge = require('merge-stream');                // 合并流
-var imagemin = require("gulp-imagemin");            // 压缩图片
+var gulp = require('gulp'); // gulp
+var connect = require('gulp-connect'); // server livereload
+var cssmin = require('gulp-minify-css'); // cssmin 当与sass写在一个流下会报错
+var csso = require('gulp-csso'); // 压缩css 与sass写在一个流下正常
+var rename = require('gulp-rename'); // rename 
+var sourcemaps = require('gulp-sourcemaps'); // 生成scss, css地图 
+var autoprefixer = require('gulp-autoprefixer'); // 自动添加前缀
+var spritesmith = require('gulp.spritesmith'); // 雪碧图
+var imagemin = require('gulp-imagemin'); // 压缩图片
+// var pngquant = require('imagemin-pngquant');         // png图片压缩质量
+var sass = require('gulp-sass'); // sass模块
+var plumber = require('gulp-plumber'); // plumber 运行出错不中断
 
-// cj配置变量
 
-var lessPluginCleanCSS = require('less-plugin-clean-css');
-var lessPluginAutoprefix = require('less-plugin-autoprefix');
-var cleancss = new lessPluginCleanCSS({ advanced: true });
-var autoprefix = new lessPluginAutoprefix({ browsers: [ 'last 2 versions' ] });
-var cj_config = {
-  html : './chuijs/**/*.html',
-  jsSrc : './chuijs/assets/js',
-  cssSrc : './chuijs/assets/css/',
-  lessSrc : './chuijs/assets/less/',
-  js : './chuijs/assets/js/*.js',
-  less : './chuijs/assets/less/*/*.less',
-  css : './chuijs/assets/css/*/*.css',
-  compile_less: [ './chuijs/assets/less/chui.less', './chuijs/assets/less/onediv.less' ]
+/* BBD_H5 */
+var CreateBBD_H5 = function(options) {
+    var _config = {
+        htmlDir: './BlueBerry_demo/h5/**/*.html',
+        baseScss: './BlueBerry_demo/h5/sass/base.scss',
+        allScss: './BlueBerry_demo/h5/sass/*.scss',
+        cssDir: './BlueBerry_demo/h5/css',
+        baseCss: './BlueBerry_demo/h5/css/base.css',
+        allImgs: './BlueBerry_demo/h5/images/*.*',
+        imgDir: './BlueBerry_demo/h5/images/'
+    };
+
+    // 创建服务器
+    gulp.task('BBD_H5server', function() {
+
+        connect.server({
+            root: './BlueBerry_demo/h5/',
+            livereload: true,
+            port: 8001
+        });
+
+    });
+
+    // 监听html
+    gulp.task('BBD_H5html', function() {
+
+        gulp.src(_config.htmlDir)
+            .pipe(connect.reload());
+
+    });
+
+    // 编译scss文件 
+    gulp.task('BBD_H5sass', function() {
+
+        gulp.src(_config.baseScss)
+            .pipe(sourcemaps.init())
+            .pipe(plumber())
+            .pipe(sass())
+            .pipe(autoprefixer())
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest(_config.cssDir))
+            .pipe(rename({
+                basename: 'base-min',
+                extname: '.css'
+            }))
+            .pipe(csso()) // gulp-minify-css会报错
+            .pipe(gulp.dest(_config.cssDir));
+
+    });
+
+    gulp.task('BBD_H5watch', function() {
+
+        gulp.watch([_config.htmlDir], ['BBD_H5html']);
+
+        gulp.watch([_config.allScss], ['BBD_H5sass']);
+
+    });
+
+    gulp.task('BBD_H5', ['BBD_H5server', 'BBD_H5watch']);
+
 };
 
-// 创建服务器
-gulp.task('cj_server', function(){
+/* APP */
+var CreateAPP = function() {
 
-  connect.server({
-    root: './chuijs/',
-    livereload: true,
-    port: 8000
-  });
+    var _config = {
+        root: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp',
+        htmlDir: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/**/*.html',
+        muiScss: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/sass-mui/mui.scss',
+        muiAllScss: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/sass-mui/*.scss',
+        themeScss: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/sass/app-theme.scss',
+        themeAllScss: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/sass/*.scss',
+        pubThemeScss: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/sass/pub-theme.scss',
+        cssDir: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/css',
+        baseCss: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/css/base.css',
+        allImgs: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/images/*.*',
+        imgDir: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/images/'
+    };
 
-});
+    var ProductionEnvironment = {
+        cssDir: "./BlueBerry/trunk/01.SRC/08 App/BlueBerry.App/css/"
+    };
 
-gulp.task('cj_less', function(){
-  
-  gulp.src(cj_config.compile_less )
-    .pipe(less({
-      plugins: [ autoprefix ]
-    }) )
-    .pipe(gulp.dest('./chuijs/assets/css' ) )
-    .pipe(minifyCSS() )
-    .pipe(rename({ extname: '.min.css' } ) )
-    .pipe(gulp.dest('./chuijs/assets/css/mins/' ) )
-    .pipe(connect.reload());
+    // 创建服务器
+    gulp.task('server', function() {
 
-});
+        connect.server({
+            root: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryApp/',
+            livereload: true,
+            port: 8001
+        });
 
-gulp.task('cj_html', function(){
+    });
 
-  gulp.src(cj_config.html )
-    .pipe(connect.reload());
+    // 编译mui.scss文件 
+    gulp.task('sass-mui', function() {
 
-});
+        gulp.src(_config.muiScss)
+            .pipe(sourcemaps.init())
+            .pipe(plumber())
+            .pipe(sass())
+            .pipe(autoprefixer())
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest(_config.cssDir))
+            .pipe(rename({
+                basename: 'mui.min',
+                extname: '.css'
+            }))
+            .pipe(csso()) // gulp-minify-css会报错
+            .pipe(gulp.dest(_config.cssDir))
+            .pipe(connect.reload());
 
-gulp.task('cj_js', function(){
+    });
 
-  gulp.src(cj_config.js )
-    .pipe(connect.reload());
+    // 编译app-theme.scss文件 
+    gulp.task('sass-theme', function() {
 
-});
+        gulp.src(_config.themeScss)
+            .pipe(sourcemaps.init())
+            .pipe(plumber())
+            .pipe(sass())
+            .pipe(autoprefixer())
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest(_config.cssDir))
+            .pipe(rename({
+                basename: 'app-theme.min',
+                extname: '.css'
+            }))
+            .pipe(csso()) // gulp-minify-css会报错
+            .pipe(gulp.dest(_config.cssDir))
+            .pipe(connect.reload());
 
-gulp.task('cj_watch', function(){
+    });
 
-  gulp.watch([ cj_config.html ], [ 'cj_html' ]);
+    // 编译pub-theme.scss文件 
+    gulp.task('pub-theme', function() {
 
-  gulp.watch([ cj_config.js ], [ 'cj_js' ]);
+        gulp.src(_config.pubThemeScss)
+            .pipe(sourcemaps.init())
+            .pipe(plumber())
+            .pipe(sass())
+            .pipe(autoprefixer())
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest(_config.cssDir))
+            .pipe(rename({
+                basename: 'pub-theme.min',
+                extname: '.css'
+            }))
+            .pipe(csso()) // gulp-minify-css会报错
+            .pipe(gulp.dest(_config.cssDir))
+            .pipe(connect.reload());
 
-  gulp.watch([ cj_config.less ], [ 'cj_less' ]);
+    });
 
-});
+    // 监听html
+    gulp.task('html', function() {
 
-gulp.task('chuijs', [ 'cj_server', 'cj_watch' ]);
+        gulp.src(_config.htmlDir)
+            .pipe(connect.reload());
+
+    });
 
 
-/*********************************************************************************
- * AVT UI SERVER
- *********************************************************************************/
+    gulp.task('watch', function() {
 
-var AVT_CONFIG = {
-  htmlSrc: ["./avtui/*/**.html","./avtui/index.html"],
-  webLess: "./avtui/web/less/avt-web.less",
-  webAllLess: "./avtui/web/less/*.less",
-  webCssSrc: "./avtui/web/assets/css",
-  webCss: ["./avtui/web/assets/css/avt-web.css"]
+        gulp.watch([_config.htmlDir], ['html']);
+
+        gulp.watch([_config.muiAllScss], ['sass-mui']);
+
+        gulp.watch([_config.themeAllScss], ['sass-theme', 'pub-theme']);
+
+    });
+
+    gulp.task('default', ['server', 'watch']);
+
 };
 
-gulp.task('AVT_SERVER', function(){
+new CreateAPP();
 
-connect.server({
-  root: './avtui/',
-  livereload: true,
-  port: 8001
-});
+/* BlueBerryWeb */
+var CreateWEB = function() {
 
-});
+    var _config = {
+        root: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryWeb/',
+        htmlDir: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryWeb/examples/',
+        sassDir: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryWeb/assets/sass/',
+        cssDir: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryWeb/assets/css/',
+        jsDir: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryWeb/assets/js/',
+        imagesDir: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryWeb/assets/images/',
+        modelsDir: './BlueBerry/trunk/02.DOC/03.HTML/BlueBerryWeb/models/',
+    };
 
-gulp.task('AVT_HTML', function(){
+    // 创建服务器
+    gulp.task('server', function() {
 
-  gulp.src(AVT_CONFIG.htmlSrc)
-      .pipe(connect.reload());
+        connect.server({
+            root: _config.root,
+            livereload: true,
+            port: 8001
+        });
 
-});
+    });
 
-// AVT-WEB LESS
-gulp.task('AVTWEB_LESS', function(){
-  
-  gulp.src(AVT_CONFIG.webLess )
-    .pipe( sourcemaps.init() )
-      .pipe(less() )
-      .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false
-      }))
-    .pipe(sourcemaps.write("./"))
-      .pipe(gulp.dest(AVT_CONFIG.webCssSrc ) );
-});
+    // 编译 all.scss
+    gulp.task('all.scss', function() {
 
-gulp.task('AVTWEB_CSSMIN', function(){
-  
-  gulp.src(AVT_CONFIG.webCss )
-    .pipe(minifyCSS() )
-    .pipe(rename({ extname: '.min.css' } ))
-    .pipe(gulp.dest(AVT_CONFIG.webCssSrc ))
-    .pipe(connect.reload());
+        gulp.src(_config.sassDir + 'all.scss')
+            .pipe(sourcemaps.init())
+            .pipe(plumber())
+            .pipe(sass())
+            .pipe(autoprefixer())
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest(_config.cssDir))
+            .pipe(rename({
+                basename: 'all.min',
+                extname: '.css'
+            }))
+            .pipe(csso()) // gulp-minify-css会报错
+            .pipe(gulp.dest(_config.cssDir))
+            .pipe(connect.reload());
+    });
 
-});
-
-gulp.task('AVTWEB_SPRITE_slidePanel', function(){
-  
-  var spriteData = gulp.src("avtui/web/icons/slidePanel/*").pipe(spritesmith({
-    imgName: "slidePanel.png",
-    cssName: "iconSlidePanel.less",
-    padding: 10,
-    imgPath: "../imgs/slidePanel.png"
-  }));
-
-  var imgStream = spriteData.img
-      .pipe(imagemin())
-      .pipe(gulp.dest('./avtui/web/assets/imgs/'));
-
-  // Pipe CSS stream through CSS optimizer and onto disk
-  var cssStream = spriteData.css
-    // .pipe(csso())
-    .pipe(gulp.dest('./avtui/web/less/'));
-
-  // Return a merged stream to handle both `end` events
-  return merge(imgStream, cssStream);
-
-});
-
-gulp.task('AVT_WATCH', function(){
-
-  gulp.watch([AVT_CONFIG.htmlSrc], ['AVT_HTML']);
-
-  gulp.watch([AVT_CONFIG.webAllLess], ['AVTWEB_LESS']);
-
-  gulp.watch([AVT_CONFIG.webCss], ['AVTWEB_CSSMIN']);
-
-});
+    // reload
+    gulp.task('reload', function() {
+        gulp.src([_config.htmlDir + "*.html", , _config.imagesDir + "*.*", _config.modelsDir + "*.js"])
+            .pipe(connect.reload());
+    });
 
 
-gulp.task('avtui', ['AVT_SERVER', 'AVT_WATCH']);
+    gulp.task('watch', function() {
 
+        gulp.watch([_config.htmlDir + "*.html", _config.imagesDir + "*.*", _config.modelsDir + "*.js"], ['reload']);
+
+        gulp.watch([_config.sassDir + "all.scss"], ['all.scss']);
+
+    });
+
+    gulp.task('default', ['server', 'watch']);
+};
+
+// new CreateWEB();

@@ -1,0 +1,183 @@
+.lmh-btn {
+    &.mui-btn {
+        position: relative;
+        padding: 10px;
+        height: 33px;
+        line-height: 1;
+        border-radius: 5px;
+        &.lmh-btn-icon {
+            padding-left: 25px;
+            .lmhicons {
+                @include position(absolute, 10px, null, 50%, null);
+                transform: translateY(-50%);
+                font-size: 12px;
+                &.lmh-icon-plus {
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
+
+.btn-delete-img {
+    display: inline-block;
+    @include size(44px, 44px);
+    &::after {
+        @include position(absolute, null, 15px, 22px, null);
+        display: block;
+        content: " ";
+        @include size(15px, 1px);
+        background: #fff;
+    }
+    &::before {
+        @include position(absolute, null, 11px, 11px, null);
+        display: block;
+        content: " ";
+        @include size(22px, 22px);
+        border-radius: 50%;
+        background-color: rgba(#000, .5);
+    }
+}
+
+#btn-search-box {
+    margin: 11px 14px;
+    padding-top: 13px;
+    padding-bottom: 12px;
+    text-align: center;
+    line-height: 1;
+    font-size: 15px;
+    background: #fff;
+    border-radius: 5px;
+    color: #a5a5a5;
+    .lmhicons {
+        margin-right: 2px;
+    }
+}
+
+// mui buttons 
+.mui-btn {
+
+	&:active {
+        color: #fff;
+        transition: all .3s;
+	}
+
+	&.mui-btn-negative,
+	&.mui-btn-danger,
+	&.mui-btn-red {
+	    background: $color-red-light;
+	    border-color: $color-red-light;
+	    &:active {
+	        background: darken($color-red-light, 10%);
+	        border-color: darken($color-red-light, 10%);
+	    }
+	}
+
+	&.mui-btn-primary,
+	&.mui-btn-blue {
+		&:active {
+			background: darken($color-blue-light, 10%);
+	        border-color: darken($color-blue-light, 10%);
+		}
+	}
+    
+    &.mui-btn-orange {
+        background: $color-orange-light;
+        border-color: $color-orange-light;
+        &:active {
+            background: darken($color-orange-light, 10%);
+            border-color: darken($color-orange-light, 10%);
+        }
+
+    }
+
+    &.mui-btn-outlined {
+        background: #fff;
+
+        &.mui-btn-orange { 
+            color: $color-orange-light;
+        }
+    }
+    //  裁剪图片 完成 取消按钮
+    &.btn-gallery-done,
+    &.btn-gallery-cancel {
+        width: 44px;
+        color: #fff;
+        &:active {
+            background: none;
+        }
+    }
+
+}
+
+// 类似底部tab切换按钮
+.lmh-btn-tab {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: $color-grey-light;
+
+    &:active {
+        color: $color-yellow;
+
+        &.lmh-color-blue {
+            color: $color-blue-light;
+        }
+        &.lmh-color-grey {
+            color: $color-grey-light;
+        }
+
+    }
+
+    &.mui-active {
+        color: $color-yellow;
+
+        .lmhicons::after {
+            color: $color-yellow;
+        }
+
+        &.lmh-color-blue {
+            color: $color-blue-light;
+            .lmhicons::after {
+                color: $color-blue-light;
+            }
+        }
+
+        &.lmh-color-grey {
+            color: $color-grey-light;
+        }
+
+        .lmh-icon-like::before {
+            content: "\e630";
+        }
+
+        .lmh-icon-favorite1::before {
+            content: "\e634";
+        }
+        .lmh-icon-helpless1::before {
+            content: "\e649";
+        }
+
+    }
+
+    .lmhicons {
+        position: relative;
+        display: inline-block;
+        @include size(24px, 24px);
+        line-height: 1;
+
+        &::after {
+            @include position(absolute, 4px, null, 0, null);
+            color: $color-blue-light;
+        }
+    }
+    .lmh-btn-text {
+        display: block;
+        margin-top: -5px;
+        font-size: 11px;
+
+    }
+}
+
+
+

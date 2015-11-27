@@ -1,0 +1,179 @@
+.mui-segmented-control {
+
+	.mui-scroll {
+		height: 40px;
+		width: auto;
+		white-space: nowrap;
+		z-index: 11;
+
+		a {
+			background: none !important;
+		}
+	}
+
+	.mui-control-item {
+		padding: 0 20px;
+	}
+}
+
+// 评论详情
+.comment-details-container {
+	margin-top: 10px;
+	// padding-bottom: 45px;
+	background: #fff;
+	overflow: hidden;
+
+	.mui-segmented-control {
+		border: 0;
+		border-top: 1px solid #dfdfdf;
+		border-radius: 0;
+
+		.mui-control-item {
+			position: relative;
+			color: #999;
+			border: 0;
+
+			&::before {
+				content: " ";
+				@include position(absolute, 0, 0, null, 0);
+				height: 1px;
+				transform: translateY(0.5);
+				background: #dfdfdf;
+			}
+
+			&.mui-active {
+				background: #fff;
+				color: $blue;
+
+				&::after {
+					content: " ";
+					@include position(absolute, 50%, null, null, -6px);
+					margin-left: -7px;
+					@include size(8px, 8px);
+					border-width: 1px;
+					border-style: solid;
+					border-color: transparent #d8d8d8 #d8d8d8 transparent;
+					background: #fff;
+					transform: rotate(-135deg);
+				}
+			}
+
+			> span {
+				position: relative;
+				display: inline-block;
+				padding-left: 18px;
+				padding-top: 5px;
+				line-height: 1;
+
+				> span {
+					padding-left: 0;
+				}
+				
+				.lmhicons {
+					@include position(absolute, 0, null, 5px, null);
+					font-size: 13px;
+
+					&.lmh-icon-comment {
+						top: 6px;
+					}
+				}
+			}
+		}
+	}
+
+	.mui-content-padded {
+		margin-top: -10px;
+	}
+}
+
+
+#comment-details-container {
+
+	.comment-details-container {
+		position: relative;
+
+		&::after {
+			content: " ";
+			@include position(absolute, 50%, null, 8px, null);
+			width: 1px;
+			height: 24px;
+			background: #b2b2b2;
+			transform: scaleX(0.5);
+
+		}
+	}
+}
+
+.homepage-slider {
+
+	&.mui-slider {
+
+		.mui-segmented-control.mui-segmented-control-inverted {
+
+			.mui-control-item {
+				@include pseudoElementBorder($bottom: 1);
+				line-height: 45px;
+			}
+
+		} 
+
+	}
+
+}
+
+// news 
+.news-tab {
+
+	&.mui-slider {
+		.mui-segmented-control.mui-slider-indicator {
+
+			@include pseudoElementBorder($bottom: 1);
+
+			&::after {
+				z-index: 10;
+			}
+
+			.mui-scroll {
+
+				&::after {
+					height: 0;
+				}
+			}
+		}
+	}
+}
+
+// tabbar style
+.lmh-segmented-control {
+    &.mui-segmented-control {
+        height: 43px;
+        background: #fff !important;
+        
+        @include pseudoElementBorder($bottom: 1);
+        &::after {
+            z-index: 10;
+        }
+
+        .mui-scroll {
+            background: transparent;
+            height: 100%;
+            width: 100%;
+            &::after {
+                height: 0;
+            }
+
+            .mui-control-item {
+                position: relative;
+                height: 100%;
+                line-height: 43px;
+
+                &.mui-active::after {
+                    @include pseudoElementBorder($bottom: 1);
+                    height: 6px;
+                    background: $color-blue-light;
+                    bottom: -2px;
+                }
+            }
+        }
+    }
+}

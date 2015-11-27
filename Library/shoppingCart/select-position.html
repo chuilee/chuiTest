@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello MUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/mui.css">
+    <link rel="stylesheet" href="css/app-theme.css">
+</head>
+
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<a class="lmhicons lmh-icon-back mui-pull-left" onclick="javascript:window.history.go(-1);"></a>
+		<h1 class="mui-title">行业职位</h1>
+	</header>
+	<div class="mui-content">
+		<ul class="mui-table-view" id="select-position">
+			<li class="mui-table-view-cell">
+				<div class="position-industry">企业高层</div>
+				<div class="position-items">
+					<div class="position-item mui-active">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">副总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">副总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+				</div>
+			</li>
+			<li class="mui-table-view-cell">
+				<div class="position-industry">企业高层</div>
+				<div class="position-items">
+					<div class="position-item mui-active">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">副总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+				</div>
+			</li>
+			<li class="mui-table-view-cell">
+				<div class="position-industry">企业高层</div>
+				<div class="position-items">
+					<div class="position-item mui-active">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">副总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">副总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理助理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">总经理</span>
+					</div>
+					<div class="position-item">
+						<span class="btn-position">执行总监</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+    <script src="js/mui.min.js "></script>
+    <script src="js/zepto.min.js "></script>
+    <script src="js/selectPosition.js "></script>
+
+    <script>
+		$(function(){
+
+			$(".position-items").selectPositions({
+				completed: function(positions){
+
+					$(".mui-title").on("tap", function(){
+						console.log(positions);
+					})
+				},
+
+				select: function(total){
+					console.log(total);
+				}
+			});
+			
+		});
+    </script>
+</body>
+
+</html>

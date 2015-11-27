@@ -1,0 +1,31 @@
+@function deviceSize($number,$ratio:3){
+	@return $number / $ratio;
+}
+
+@mixin pseudoElementBorder($top: 0, $bottom: 0, $left: 0, $right: 0) {
+
+	&::before,
+	&::after {
+		position: absolute;
+		left: $left;
+		right: $right;
+		display: none;
+		content: " ";
+		background: #d8d8d8;
+		height: 1px;
+		transform: scaleY(0.5);
+	}
+
+	@if $top == 1 {
+		&::before {
+			top: 0;
+			display: block;
+		}
+	}
+	@if $bottom == 1 {
+		&::after {
+			bottom: 0;
+			display: block;
+		}
+	}
+}

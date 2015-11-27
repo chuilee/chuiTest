@@ -1,0 +1,1059 @@
+@import '_mixins.scss';
+@import '_variables.scss';
+@import '../libs/animate-sass/_animate.scss';
+@import '_animation.scss';
+// public
+@import '_public.scss';
+// 按钮
+@import '_buttons.scss';
+// 带tab的下拉加载
+@import '_segmented.scss';
+// 列表
+@import '_list.scss';
+// 提示信息G
+@import '_message.scss';
+// 弹出对话框G
+@import '_dialog.scss';
+// mui
+@import '_mui.scss';
+// font
+@import '_iconfont.scss';
+// public ======================================================>>
+.topic-badge {
+    &.mui-badge {
+        margin-right: 6px;
+        color: #778089;
+        font-size: 15px;
+        background-color: #edf0f2;
+        border-radius: 3px;
+    }
+}
+
+// header ====================================================>>
+.mui-bar {
+    .lmh-icon-addTopic {
+        margin-right: -40px;
+        z-index: 10;
+    }
+}
+
+// mui ======================================================>>
+.mui-segmented-control .mui-control-item {
+    @include pseudoElementBorder($bottom: 1);
+}
+
+.mui-slider .mui-slider-group .mui-slider-item .answer-from img {
+    width: 21px;
+}
+
+// pub list ==================================================>>
+.pub-list {
+    &.mui-table-view {
+        background: #f1f1f1;
+        .mui-table-view-cell {
+            margin-bottom: 10px;
+            background: #fff;
+            @include pseudoElementBorder($top: 1, $bottom: 1);
+            &:first-child::before {
+                height: 0;
+            }
+
+            .topic-money-wrapper .topic-money {
+                // margin-right: 6px;
+            }
+        }
+    }
+}
+
+.topic-title-container {
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    // .topic-money {
+    .topic-money-wrapper {
+        position: absolute;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        top: 4px;
+        left: -5px;
+    }
+}
+
+.topic-answer-container {
+    position: relative;
+    margin-top: 10px;
+    @include pseudoElementBorder($top: 1);
+}
+
+.topic-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 1.2;
+    white-space: normal;
+    &.topic-title-indent {
+        text-indent: 55px;
+    }
+
+    .topic-money-wrapper {
+        float: left;
+        position: relative;
+        top: 0;
+    }
+}
+
+.topic-money {
+    display: block;
+    margin-right: 0;
+    height: 17px;
+    padding: 3px 3px 0;
+    font-size: 12px;
+    color: $color-red-light;
+    border: 1px solid $color-red-light;
+    border-radius: 3px;
+    line-height: 1;
+    text-align: center;
+    .lmh-icon-rmb {
+        display: inline-block;
+        margin-right: -2px;
+        margin-top: -1px;
+        margin-left: -2px;
+        font-size: 10px;
+        transform: translateY(-1px) scale(.75);
+    }
+}
+
+.answer-top {
+    padding-top: 10px;
+    @extend %clearfix;
+    font-size: 14px;
+    color: #bfbfbf;
+    .answer-from {
+        float: left;
+        a {
+            position: relative;
+            float: left;
+            margin-right: 3px;
+            line-height: 21px;
+            color: $color-blue-darken;
+        }
+        .user-head {
+            float: left;
+            margin-right: 7px;
+            margin-top: -2px;
+            height: 21px;
+            border-radius: 50%;
+        }
+        .field-img {
+            float: left;
+            margin-right: 7px;
+            margin-top: -2px;
+            height: 21px;
+            border-radius: 3px;
+        }
+        .me-identifying {
+            @include position(absolute, 7px, null, 4px, null);
+            transform: scale(.5);
+        }
+    }
+    .answer-date {
+        float: right;
+    }
+}
+
+.answer-main {
+    margin-top: 7px;
+    .answer-main-left {
+        float: left;
+        margin-top: 3px;
+        height: 36px;
+        width: 37px;
+        border: 1px solid $color-blue-light;
+        border-radius: 3px;
+        .topic-money,
+        .topic-answers {
+            display: block;
+            height: 50%;
+            font-size: 11px;
+            text-align: center;
+        }
+        .topic-money {
+            margin-right: 0;
+            border: 0;
+            color: $color-blue-light;
+        }
+        .topic-answers {
+            color: #fff;
+            background: $color-blue-light;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+    }
+    .answer-main-content {
+        margin-left: 48px;
+        color: #666;
+        p {
+            color: #666;
+            font-size: 16px;
+        }
+    }
+}
+
+// topic reply list ==================================================>>
+// .reply-list-fullscreen.mui-fullscreen {
+//     > .mui-scroll-wrapper {
+//         bottom: 54px;
+//     }
+// }
+.topic-details-container {
+    position: relative;
+    padding: 10px 15px;
+    background: #fff;
+    @include pseudoElementBorder($bottom: 1);
+    .topic-title-container {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        &::after {
+            height: 0;
+        }
+    }
+    // .topic-money {
+    //     top: 17px;
+    // }
+}
+
+.topic-description {
+    &,
+    p {
+        color: #666;
+        font-size: 16px;
+    }
+}
+
+.topic-details-bar,
+.topic-encourage {
+    position: relative;
+    .lmh-btn {
+        @include position(absolute, null, 0, 50%, null);
+        transform: translateY(-50%);
+    }
+}
+
+.topic-details-bar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    .lmh-btn {
+        width: 89px;
+        .lmhicons {
+            left: 22px !important;
+        }
+    }
+    .news-views {
+        margin-left: 2px;
+    }
+
+    .lmh-message {
+        @include position(absolute, null, 96px, null, 11px);
+        line-height: 1;
+        font-size: 11px;
+    }
+}
+
+.topic-encourage {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    @include pseudoElementBorder($top: 1, $left: -15px, $right: -15px);
+    .lmh-btn {
+        background: none !important;
+        color: $color-red-light !important;
+    }
+    .encourage-from {
+        display: block;
+        height: 28px;
+        line-height: 28px;
+        font-size: 15px;
+        @extend %clearfix;
+        .user-head-wrapper {
+            float: left;
+            margin-right: 3px;
+            @include size(28px, 28px);
+            .me-identifying {
+                left: 12px;
+                top: 12px;
+                transform: scale(.6);
+            }
+        }
+        .lmh-icon-more {
+            display: block;
+            float: left;
+            margin-right: 5px;
+            @include size(28px, 28px);
+            background: $color-blue-light;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 28px;
+        }
+    }
+}
+
+.reply-top {
+    padding-bottom: 5px;
+    .user-head-wrapper {
+        margin-left: -5px;
+        margin-top: -5px;
+        float: left;
+        transform: scale(.78);
+    }
+    .reply-top-right {
+        margin-left: 45px;
+        .reply-from {
+            padding-top: 0;
+        }
+    }
+}
+
+.reply-from {
+    font-size: 12px;
+    a {
+        position: relative;
+        padding-right: 5px;
+        margin-right: 5px;
+        font-size: 16px;
+        &::after {
+            content: " ";
+            @include position(absolute, null, 0, 5px, 2px);
+            width: 1px;
+            background: #474747;
+            transform: scaleX(.5);
+        }
+        &.bd-0::after {
+            width: 0;
+        }
+    }
+}
+
+.reply-date {
+    font-size: 12px;
+    color: #474747;
+    line-height: 1;
+}
+
+.reply-list-container {
+    margin-top: 12px;
+    margin-bottom: 64px;
+    .mui-table-view .mui-table-view-cell::after {
+        right: 15px;
+    }
+
+    .tag-accepted {
+        @include position(absolute, null, 15px, 0, null);
+    }
+}
+
+.reply-item-main {
+    .answer-main-left {
+        width: 45px;
+    }
+    .answer-main-content {
+        margin-left: 50px;
+    }
+}
+
+// encourage list ==================================================>>
+.encourage-list {
+    &.fixbug-app {
+        margin-bottom: 64px;
+    }
+    .mui-table-view-cell {
+        &.mui-table-divider {
+            background: #f1f1f1;
+            &::after {
+                left: 0;
+                right: 0;
+            }
+        }
+        &::after {
+            right: 15px;
+        }
+    }
+    .topic-money {
+        @include position(absolute, null, 5px, 50%, null);
+        transform: translateY(-50%);
+        padding-bottom: 3px;
+        padding-top: 4px;
+        height: 20px;
+    }
+}
+
+.encourage-infos {
+    @extend %clearfix;
+    font-size: 15px;
+    color: #999;
+    .encourage-text {
+        float: left;
+    }
+    .encourage-total {
+        float: right;
+        .lmh-icon-rmb {
+            position: relative;
+            padding-left: 12px;
+            color: $color-red-light;
+            &::before {
+                position: absolute;
+                left: 0;
+                top: -3px;
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+.topic-list-tab {
+    &.lmh-segmented-control {
+        .mui-control-item {
+            width: 50%;
+        }
+    }
+}
+
+.btn-encourage-more {
+    display: block;
+    margin: 3px auto 0;
+    width: 200px;
+    font-size: 16px;
+}
+
+// qa ============================== >>
+.qa-invite-top {
+    padding: 13px;
+    .mui-search {
+        .mui-placeholder,
+        .mui-icon-search {
+            color: #a5a5a5;
+        }
+        input {
+            background: #fff;
+        }
+    }
+
+    .lmh-message {
+        padding-top: 10px;
+        line-height: 1.2;
+        text-align: center;
+    }
+}
+
+.qa-invite-list {
+    &.mui-table-view {
+
+        .mui-table-view-cell {
+            &::after {
+                right: 15px;
+            }
+
+            .reply-top {
+                padding-top: 5px;
+                padding-bottom: 0;
+            }
+        }
+
+        .mui-btn {
+            padding-left: 10px;
+            padding-right: 10px;
+            @include size(67px, 24px);
+            line-height: 26px;
+            font-size: 13px;
+            border-radius: 5px;
+
+            .lmhicons {
+                float: left;
+                margin-top: -1px;
+                margin-left: 3px;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+// 添加回答
+.qa-input-group {
+
+    &.mui-input-group {
+        &::after {
+            left: 15px;
+            right: 15px;
+        }
+    }
+
+    .mui-input-row {
+        height: 50px;
+
+        input {
+            height: 50px;
+            line-height: 30px;
+            font-size: 16px;
+        }
+    } 
+    textarea {
+        font-size: 16px;
+    }
+
+    .qa-textarea-container {
+        padding-bottom: 38px;
+        position: relative;
+        .anonymous-checkbox {
+            @include position(absolute, 15px, null, null, 10px);
+
+            input {
+                left: 40px;
+                top: 0;
+            }
+        }
+    }
+}
+
+
+.qa-tag-title {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #4c4c4c;
+
+    small {
+        color: #bfbfbf;
+    }
+
+    .lmhicons {
+        float: left;
+        margin-top: -3px;
+        margin-right: 4px;
+        display: block;
+        @include size(24px, 24px);
+        border-radius: 50%;
+        background: $color-red-light;
+        line-height: 26px;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+    }
+}
+
+.qa-tags {
+    padding-left: 10px;
+    padding-bottom: 5px;
+    margin-top: -13px;
+    width: 100%; 
+    overflow: hidden;
+    .mui-btn {
+        float: left;
+        margin-right: 20px;
+        margin-top: 13px;
+        position: relative;
+        padding-right: 10px;
+        padding-left: 10px;
+        min-width: 70px;
+        height: 30px;
+        font-size: 15px;
+        line-height: 30px;
+        border-radius: 5px;
+        color: #4c4c4c;
+
+        .lmh-icon-plus {
+            @include size(14px, 14px);
+            @include position(absolute, 50%, null, 50%, null);
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            line-height: 1;
+            color: $color-blue-light;
+        }
+        
+        .lmh-icon-cancel {
+            @include position(absolute, null, 5px, 5px, null);
+            display: block;
+            @include size(17px, 17px);
+            line-height: 19px;
+            border-radius: 50%;
+            background: #bfbfbf;
+            text-align: center;
+            color: #fff;
+            font-size: 8px;
+        }
+
+        .btn-tag-close {
+            position: relative;
+            display: block;
+            @include position(absolute, null, -12px, -12px, null);
+            @include size(34px, 34px);
+            line-height: 44px;
+
+            &:active {
+                .lmh-icon-cancel {
+                    background: $color-blue-light;
+                }
+            }
+        }
+    }
+}
+
+.qa-add-money {
+    .lmhicons {
+        float: left;
+        margin-top: -3px;
+        margin-right: 4px;
+        display: block;
+        @include size(24px, 24px);
+        border-radius: 50%;
+        background: $color-yellow;
+        line-height: 28px;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .qa-total-money {
+        margin-right: 20px;
+        color: $color-red-light;
+        .lmhicons {
+            margin-right: -8px;
+            margin-top: -4px;
+            font-size: 10px;
+            background: none;
+            color: $color-red-light;
+        }
+    }
+}
+
+
+// reply details
+.reply-mui-content {
+    position: absolute;
+    top: 105px;
+    bottom: 54px;
+    width: 100%;
+    background: #fff;
+}
+.reply-details-top {
+    position: relative;
+    padding: 13px;
+    margin-top: 44px;
+    background: #f5f6f7;
+    @extend %clearfix;
+    @include pseudoElementBorder($bottom: 1);
+
+    .user-head-wrapper {
+        float: left;
+        margin-top: -5px;
+        margin-left: -5px;
+        transform: scale(.78);
+    }
+    .reply-top-right {
+        margin-right: 80px;
+        margin-left: 45px;
+    }
+    .btn-add-money {
+        @include position(absolute, null, 15px, 50%, null);
+        transform: translateY(-50%);
+        @include size(80px, 30px);
+        border-radius: 5px;
+    }
+}
+
+.reply-details {
+    padding: 13px 12px;
+}
+
+.encourage-container {
+    position: relative;
+    padding-bottom: 10px;
+    overflow: hidden;
+    @include pseudoElementBorder($bottom: 1);
+    
+    .encourage-money,
+    .encourage-people {
+        float: left;
+    }
+
+    .encourage-people {
+        margin-left: 0;
+    }
+
+    .topic-encourage {
+        padding: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+        &::before {
+            height: 0;
+        }
+    }
+
+    .topic-money-wrapper {
+        float: left;
+        margin-top: 9px;
+
+        .topic-money {
+            margin-right: 6px;
+        }
+
+        .topic-money-icon {
+            top: -3px;
+        }
+    }
+}
+
+.encourage-money {
+    display: inline-block;
+    margin-top: 3px;
+    font-size: 22px;
+    color: $color-red-light;
+    @extend %clearfix;
+
+    .lmhicons {
+        display: block;
+        float: left;
+        @include size(26px, 26px);
+        border-radius: 50%;
+        background: $color-red-light;
+        font-size: 16px;
+        color: #fff;
+        line-height: 26px;
+        text-align: center;
+        transform: scale(.7);
+    }
+
+    small {
+        display: block;
+        float: left;
+        margin-left: -3px;
+        margin-top: 2px;
+        height: 26px;
+        font-size: inherit;
+        line-height: 26px;
+    }
+}
+
+.encourage-people {
+    margin-top: 15px;
+    margin-left: 10px;
+    line-height: 1;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.replay-details-content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    p {
+        text-indent: 2em;
+        color: #666;
+    }
+
+    .tag-accepted {
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+}
+
+// top search bar
+.top-mui-search {
+    @include position(absolute, 50px, 60px, null, 0);
+
+    &.mui-search {
+        input {
+            background: #fff;
+        }
+    }
+
+    .mui-placeholder {
+        text-align: left;
+        .mui-icon {
+            margin-left: -5px;
+            margin-top: 1px;
+        }
+    }
+}
+
+.money-tags {
+    margin-top: -20px;
+    padding: 20px;
+    overflow: hidden;
+    .money-tag {
+        position: relative;
+        float: left;
+        display: block;
+        margin-top: 20px;
+        padding-top: 7px;
+        padding-bottom: 3px;
+        @include size(83px, 36px);
+        text-align: center;
+        color: $color-red-light;
+        border: 1px solid $color-red-light;
+        border-radius: 5px;
+        line-height: 1;
+        font-size: 26px;
+
+        &.mui-active {
+            color: #fff;
+            background: $color-red-light;
+        }
+
+        @include j-column($ratios: 1/3, $gutter: 5, $cycle: 3);
+
+        .money-tag-container {
+            @include position(absolute, 50%, null, 50%, null);
+            transform: translate(-50%, -50%);
+            padding-left: 20px;
+        }
+
+        .lmhicons {
+            display: block;
+            @include position(absolute, 0, null, 6px, null);
+            font-size: 18px;
+            margin-top: -2px;
+        }
+    }
+}
+.btn-other-money {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: $color-blue-light;
+}
+#pw-inputbox {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    left: -9999px;
+}
+
+
+// dialog
+.lmh-dialog {
+
+    .dialog-encourage-money {
+        padding-top: 20px;
+        padding-bottom: 10px;
+        font-size: 16px;
+        line-height: 1;
+        text-align: center;
+
+        small {
+            font-size: 100%;
+            color: $color-red-light;
+        }
+    }
+
+    .change-money-box {
+        margin-top: 20px;
+    }
+}
+
+.payment-lists {
+    margin-bottom: 40px !important;
+
+    .mui-table-view-cell {
+        height: 62px;
+
+        .mui-navigate-right {
+            padding-left: 60px;
+            height: 62px;
+            border-radius: 0 !important;
+        }
+
+        .mui-radio {
+            height: 40px;
+            label {
+                height: 100%;
+            }
+
+            input {
+                top: 5px;
+                right: 10px;
+                &:checked {
+                    top: 8px;
+                    right: 11px;
+                    &::before {
+                        content: "\e64c";
+                        font-family: lmhicons;
+                        font-size: 23px;
+                        margin-left: 3px;
+                    }
+                }
+            }
+        }
+
+        &.mui-disabled {
+
+            .payment-name,
+            .lmhicons {
+                color: $color-grey-light;
+            }
+        }
+    }
+
+    .lmhicons {
+        @include position(absolute, 25px, null, 50%, null);
+        transform: translateY(-50%);
+        font-size: 33px;
+
+        &.lmh-icon-xke,
+        &.lmh-icon-alipay {
+            left: 30px;
+            font-size: 24px;
+        }
+    }
+    
+    .payment-item {
+        @include position(absolute, null, null, 50%, null);
+        transform: translateY(-50%);
+
+        .payment-name,
+        .payment-balance {
+            display: block;
+            line-height: 1.2;
+        }
+
+        .payment-name {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .payment-balance {
+            font-size: 12px;
+            color: #bfbfbf;
+
+            small {
+                padding-left: 5px;
+                color: $color-red-light;
+            }
+        }
+    }
+}
+
+.btn-payment-confirm {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+}
+
+.topic-money-wrapper {
+    position: relative;
+    height: 20px;
+    padding-left: 23px;
+
+    .topic-money-icon {
+        @include position(absolute, 0, null, -1px, null);
+        display: block;
+        @include size(24px, 24px);
+        border-radius: 50%;
+        border: 1px solid $color-red-light;
+        text-align: center;
+        line-height: 22px;
+        transform: scale(.73);
+
+        .lmhicons {
+            color: $color-red-light;
+        }
+    }
+    .topic-money {
+        float: left;
+        padding: 0;
+        height: 20px;
+        border: 0;
+        color: $color-red-light;
+        line-height: 20px;
+        font-size: 19px;
+    }
+}
+
+.tag-accepted {
+    position: relative;
+    display: block;
+    @include size(44px, 20px);
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+    background: #54c682;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+    &::after {
+        content: " ";
+        display: block;
+        @include position(absolute, 18px, null, null, -8px);
+        width: 0;
+        height: 0;
+        border-width: 4px;
+        border-style: solid;
+        border-color: #54c682 transparent transparent transparent;
+        transform: scaleX(4.8);
+    }
+}
+
+// confirm
+
+.lmhConfirm-wrapper {
+    &.lmh-dialog {
+        padding: 20px 10px;
+
+        .dialog-content {
+            padding: 38px 0 48px;
+            text-align: center;
+        }
+
+        .dialog-btns {
+            .mui-btn {
+                margin-left: 3px;
+                width: 133px;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+.question-item-bottom {
+    padding-top: 16px;
+    padding-bottom: 2px;
+    overflow: hidden;
+
+    .question-state,
+    .question-followed,
+    .question-replied {
+        font-size: 13px;
+        line-height: 1;
+    }
+    .question-state {
+        float: left;
+
+        &.question-state-resolving {
+            color: $color-red-light;
+        }
+        &.question-state-resolved {
+            color: $color-green-light;
+        }
+    }
+    .question-followed,
+    .question-replied {
+        float: right;
+        margin-left: 27px;
+        color: #999;
+    }
+}
+
+.question-list {
+    &.mui-table-view {
+
+        .mui-table-view-cell {
+            &:after {
+                right: 15px;
+            }
+            .answer-from .user-head {
+                width: 21px;
+            }
+        }
+    }
+}

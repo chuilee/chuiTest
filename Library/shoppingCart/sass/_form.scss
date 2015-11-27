@@ -1,0 +1,36 @@
+.search-bar {
+	position: relative;
+	height: 33px;
+
+	.search-input {
+		display: block;
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-bottom: 0;
+		padding-right: 60px;
+		height: 100%;
+		border: 0;
+		font-size: 15px;
+		@include border-radius-separate(5px, 0, 5px, 0);
+
+		&::-webkit-input-placeholder {
+			color: #bfbfbf;
+		}
+	}
+	
+	.btn-search {
+		@include position(absolute, null, -10px, 0, null);
+		@include size(60px, 100%);
+		background: #eaeaea;
+		border: 0;
+		color: #7f7f7f;
+		font-size: 15px;
+		@include border-radius-separate(0, 5px, 0, 5px);
+
+		&:active {
+			background: #d8d8d8;
+			color: #7f7f7f;
+		}
+	}
+
+};

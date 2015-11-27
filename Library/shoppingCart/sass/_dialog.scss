@@ -1,0 +1,117 @@
+// 职位标签
+.positions-dialog {
+	height: auto !important;
+
+	.mui-button-row {
+		margin-bottom: 15px;
+	}
+
+	.selected-position {
+		position: relative;
+		display: block;
+		padding: 10px 5px;
+		margin: 16px 70px 0;
+		font-size: 16px;
+		color: #02aff0;
+		line-height: 1;
+		border-color: #02aff0;
+		border-radius: 5px;
+		text-align: center;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		.lmhicons {
+			@include position(absolute, null, -11px, 50%, null);
+			transform: translateY(-50%);
+			@include size(23px, 23px);
+			border-radius: 50%;
+			font-size: 10px;
+			line-height: 23px;
+			text-align: center;
+			color: #fff;
+			background: #ff5757;
+
+			&:active {
+				background: darken(#ff5757, 10%);
+			}
+		}
+	}
+
+}
+
+// dialog
+.lmh-dialog {
+    @include position(absolute, 50%, null, 50%, null);
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background: #fff;
+
+    .mui-popover-arrow {
+        display: none;
+    }
+
+    &.lmh-dialog-arrow {
+        .mui-popover-arrow {display: block}
+    }
+
+    .dialog-title {
+        position: relative;
+        padding: 16px;
+        font-size: 16px;
+        text-align: center;
+        line-height: 1;
+        color: #666;
+        @include pseudoElementBorder($bottom: 1, $left: 15px, $right: 15px);
+
+        .btn-dialog {
+            @include position(absolute, null, 0, 0, null);
+            @include size(44px, 44px);
+            border: 0;
+            
+            &:active {
+                color: $color-blue-light;
+                background: none;
+
+                .lmhicons {
+                	color: $color-blue-light;
+                }
+            }
+
+            &.btn-dialog-close {
+                top: 0;
+                right: 10px;
+            }
+
+            &.btn-dialog-back {
+                top: 0;
+                right: auto;
+                left: 10px;
+            }
+
+            .lmhicons {
+                font-size: 14px;
+                color: #d0d0d0;
+            }
+        }   
+    }
+
+    .mui-table-view {
+        border-radius: 0 !important;
+        background: #fff;
+    }
+
+    .mui-table-view-cell {
+        border-radius: 0 !important;
+        
+        &::after {
+            right: 15px;
+        }
+
+        &:last-child::after {
+            height: 1px;
+        }
+    }
+}
+

@@ -1,0 +1,344 @@
+@mixin ellipsis($line:1 ) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    white-space: normal!important;
+    word-wrap: break-word;
+}
+// base
+// 超出行数省略
+@for $i from 1 through 5 {
+    .mui-ellipsis-#{$i} {
+        @include ellipsis($i);
+    }
+}
+    
+
+html, body{
+    min-height: 100%;
+}
+
+body {
+   font-family: "Hiragino Sans GB", "Heiti SC", "STHeiti", "Droid Sans Fallback", "Roboto", "sans-self", "Microsoft Yahei";
+   background: #F1F1F1;
+   color: #333;
+}
+//
+.mui-bar-nav ~ .mui-content > .mui-scroll-wrapper { top: 44px;}
+
+// table-view
+.mui-table-view {
+    
+    &::before {
+        top: -1px;
+        background-color: #d8d8d8;
+    }
+
+    .mui-table-view-cell {
+        &::after {
+            background-color: #d8d8d8;
+        }
+    }
+}
+
+.mui-title {
+    font-size: 17px;
+    font-weight: normal;
+}
+
+.mui-bar {
+    background-color: #02aff0;
+
+    .mui-title {
+        left: 90px;
+        right: 90px;
+    }
+} 
+
+// .mui-ios {
+//     .mui-bar-nav {
+//         padding-top: 20px;
+//         height: 64px;
+//     }
+// }
+
+.mui-bar-nav {
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: none;
+
+    &.mui-bar-grey {
+        background-color: #f1f1f1;
+        @include pseudoElementBorder($bottom: 1);
+
+        a,
+        .lmhicons,
+        .mui-title {
+            color: #666;
+        }
+    }
+
+    a,
+    .mui-icon {
+        color: #fff;
+    }
+
+    .lmh-icon-forward {
+        padding-left: 0 !important;
+    }
+
+    .lmh-icon-favorite1.mui-active {
+        color: $yellow;
+
+        &::before {
+            content: "\e634";
+        }
+
+    }
+
+    .lmhicons {
+        position: relative;
+        padding-top: 12px;
+        padding-left: 15px;
+        @include size(100px, 44px);
+        font-size: 19px;
+        z-index: 9;
+
+        &.lmh-icon-editpanel,
+        &.lmh-icon-addperson {
+            font-size: 21px;
+        }
+
+        &.mui-pull-right {
+            padding-left: auto;
+            padding-right: 15px;
+            text-align: right;
+
+            &.lmh-icon-list2 {
+                padding-right: 17px;
+            }
+
+            &.lmh-icon-invite2 {
+                font-size: 21px;
+            }
+        }
+    }
+
+    .search-bar {
+        @include position(absolute, 40px, 30px, 5px, null);
+    }
+}
+.mui-bar-nav.mui-bar {
+    .mui-icon.mui-icon-text {
+        margin-right: 0;
+        padding-right: 13px;
+        padding-top: 14px;
+        height: 44px;
+        font-size: 16px;
+        font-family: inherit;
+    }
+}
+
+.mui-btn {
+    padding: 0;
+    height: 35px;
+    border-radius: 20px;
+    border-width: 0 !important;
+    box-shadow: none;
+    line-height: 35px;
+    &.mui-btn-outlined {
+        border-width: 1px !important;
+    }
+}
+
+.mui-btn.mui-btn-negative, 
+.mui-btn.mui-btn-danger, 
+.mui-btn.mui-btn-red {
+    background: $color-red-light;
+}
+
+.mui-btn-block-container {
+    padding: 10px 40px;
+}
+.mui-slider-indicator .mui-indicator {
+    @include size(10px, 10px);
+    background: #BFBFBF;
+    box-shadow: none;
+}
+
+.mui-slider.news-tab,
+.news-tab {
+
+    .mui-segmented-control {
+        height: 40px;
+        border: 0;
+        box-shadow: none;
+
+        // &::after {
+        //     @include position(absolute, 0, 0, null, 0);
+        //     height: 1px;
+        //     background: #D0D0D0;
+        //     transform: scaleY(0.5);
+        // }
+        .mui-scroll {
+            @include pseudoElementBorder($bottom:1);
+        }
+    }
+ 
+    .mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+        position: relative;
+        height: 100%;
+        border-bottom: 0;
+        &::after {
+            height: 0;
+            content: " ";
+            @include position(absolute, 16px, 16px, null, 0);
+            background: $blue;
+            // transform: translateX(-200%);
+        }
+        &.mui-active {
+             &::after {
+                height: 3px;
+                // transform: translateX(0);
+                // transition: all .3s;
+            }
+        }
+       
+    }
+
+    .mui-slider-group .mui-slider-item {
+        border-top: 0 !important;
+        border-bottom: 0 !important;
+    }
+}
+
+
+.mui-content {
+    
+    padding-bottom: 13px;
+
+    > .mui-table-view:first-child {
+        margin-top: 10px;
+    }
+} 
+
+.mui-table-view-divider {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.mui-pull-bottom-tips {
+    background-color: #FFF;
+}
+
+// picker time
+.mui-dtpicker-header,
+.mui-poppicker-header {
+    padding: 8px 15px;
+    button,
+    .mui-btn {
+        width: 65px;
+        height: 32px;
+        border-radius: 5px;
+        font-size: 16px;
+        line-height: 1;    
+    }
+} 
+
+// µ×²¿µ¼º½À¸
+.mui-bar-tab {
+    height: 54px;
+}
+.footer-bar-tab {
+    background: #fff;
+    box-shadow: none;
+    border-top: 1px solid #D1D2D2;
+    .mui-tab-item {
+        line-height: 1;
+        color: #A4A4A4;
+
+        &.mui-active {
+
+            .lmh-icon-news::before { content: "\e65d";}
+            .lmh-icon-show::before { content: "\e660";}
+            .lmh-icon-talk::before { content: "\e65b";}
+            .lmh-icon-message1::before { content: "\e65c";}
+            .lmh-icon-person::before { content: "\e65a";}
+
+        }
+
+        .lmhicons {
+            display: block;
+            margin-top: 2px;
+            font-size: 20px;
+
+            &.lmh-icon-message1 {
+                margin-top: 0;
+                font-size: 18px;
+                line-height: 22px;
+            }
+        }
+        
+        .mui-tab-label {
+            font-size: 12px;
+        }
+    }
+}
+
+
+
+// segmented-control
+.mui-slider {
+    .mui-segmented-control.mui-segmented-control-inverted {
+            
+            .mui-control-item {
+                line-height: 40px;
+                background: #fff;
+                border: 0;
+                box-shadow: none;
+
+                &.mui-active {
+                    background: #fff;
+                }
+            }
+
+            ~ .mui-slider-group .mui-slider-item {
+                border: 0;
+            }
+
+             ~ .mui-slider-progress-bar {
+                margin-top: -2px;
+             }
+
+        }
+}
+
+// checkbox
+.anonymous-checkbox {
+    &.mui-checkbox {
+        label {
+            display: inline-block;
+            float: left;
+            width: auto;
+            color: #bfbfbf;
+        }
+
+        input[type="checkbox"]{
+            @include size(20px, 20px);
+            right: auto;
+            left: 55px;
+
+            &::before {
+                font-size: 18px;
+                font-family: lmhicons;
+                content: "\e650";
+            }
+            
+            &:checked::before {
+                content: "\e62b";
+            }
+        }
+    }
+}
