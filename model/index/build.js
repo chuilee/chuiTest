@@ -1,8 +1,7 @@
-requirejs.config({
+({
 	baseUrl: "../libs/",
 	paths: {
-		js: "../assets/js/",
-		models: "../models/",
+		js: "../assets/js",
 		jquery: "../libs/jquery/dist/jquery.min",
 		bootstrap: "../libs/bootstrap-sass/assets/javascripts/bootstrap.min",
 		underscore: "../libs/underscore/underscore-min",
@@ -12,20 +11,6 @@ requirejs.config({
 		bootstrap_transition: "../libs/bootstrap-sass/assets/javascripts/bootstrap/transition",
 		VProgress: "../XTest/wave_background-master/VProgress",
 	},
-	shim: {
-		bootstrap: ["jquery"],
-
-		underscore: {
-			exports: "_"
-		},
-
-		backbone: {
-			deps: ["jquery", "underscore"],
-			exports: "Backbone"
-		},
-
-		bootstrap_transition: ["jquery"],
-		bootstrap_dropdown: ["jquery"],
-		bootstrap_collapse: ["jquery", "bootstrap_transition"]
-	}
-})
+	name: "../models/index",
+	out: "../models/index-built.js"
+});
