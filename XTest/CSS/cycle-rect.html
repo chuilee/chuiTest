@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="../../asset/css/all.min.css">
+    <style>
+        ul,
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .animate-container {
+            position: relative;
+            margin: 80px auto 0;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .img-container {
+            margin: 0 auto;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #ff9600;
+            border-radius: 50%;
+            line-height: 300px;
+            text-align: center;
+        }
+
+        .title {
+            position: absolute;
+            top: 300px;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .lists,
+        .list {
+            width: 100%;
+            text-align: center;
+        }
+
+        .lists {
+            position: absolute;
+            top: 360px;
+            width: 100%;
+        }
+
+        .list a {
+            display: block;
+            padding: 5px;
+            line-height: 1;
+            text-decoration: none;
+        }
+        .list a:hover {
+            background: #d25901;
+        }
+
+        .animate-hover .img-container {
+            border-radius: 0;
+            background: #ff9600;
+            height: 500px;
+            transition: all .5s;
+        }
+        .animate-hover.animate-container {
+            height: 500px;
+            transition: all .5s;
+        } 
+
+        .animate-leave .img-container {
+            border-radius: 50%;
+            background: none;
+            height: 300px;
+            transition: all .3s;
+        }
+        .animate-leave.animate-container {
+            height: 300px;
+            transition: all .3s;
+        } 
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="animate-container">
+            <div class="img-container">
+                <img src="img/platform.png" height="84" width="131" alt="">
+            </div>
+            <div class="title">平台产品</div>
+            <ul class="lists">
+                <li class="list"><a href="#">蓝莓之夜</a></li>
+                <li class="list"><a href="#">蓝莓之夜</a></li>
+                <li class="list"><a href="#">蓝莓之夜</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var container = document.querySelector(".animate-container");
+
+        container.addEventListener("mouseenter", function(){
+            var klass = this.classList.toString();
+            klass = klass.replace(/( animate-leave)/, "");
+            klass += " animate-hover";
+            this.setAttribute("class", klass);
+        });
+
+        container.addEventListener("mouseleave", function(){
+            var klass = this.classList.toString();
+            klass = klass.replace(/( animate-hover)/, "");
+            klass += " animate-leave";
+            this.setAttribute("class", klass);
+        });
+    </script>
+</body>
+
+</html>
