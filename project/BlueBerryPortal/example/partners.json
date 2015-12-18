@@ -1,0 +1,32 @@
+{
+    "item1": {
+        "name": "蓝莓荟",
+        "logo": "img/partners/code.jpg",
+        "logo_active": "img/partners/code.jpg",
+        "url": "www.bootcss.com"
+    },
+    "item2": {
+        "name": "蓝莓荟",
+        "logo": "img/partners/code.jpg",
+        "logo_active": "img/partners/code.jpg",
+        "url": "www.bootcss.com"
+    },
+    "item3": {
+        "name": "蓝莓荟",
+        "logo": "img/partners/code.jpg",
+        "logo_active": "img/partners/code.jpg",
+        "url": "www.bootcss.com"
+    },
+    "item4": {
+        "name": "蓝莓荟",
+        "logo": "img/partners/code.jpg",
+        "logo_active": "img/partners/code.jpg",
+        "url": "www.bootcss.com"
+    },
+    "item5": {
+        "name": "蓝莓荟",
+        "logo": "img/partners/code.jpg",
+        "logo_active": "img/partners/code.jpg",
+        "url": "www.bootcss.com"
+    }
+}
