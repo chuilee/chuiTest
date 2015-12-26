@@ -1,0 +1,18 @@
+<div class="media list-media">
+    <div class="media-left">
+        <a href="<%= url %>">
+            <img class="media-object" src="<%= imgurl %>" alt="<%= title %>">
+            <span class="tag tag-green">蓝莓之夜</span>
+        </a>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading"><%= title %></h4>
+        <p class="list-content">
+            <%= description %>
+        </p>
+        <div class="list-bottom">
+            <span class="release-date"><%= date ? date : "" %></span>
+            <a href="<%= url %>" class="read-more">阅读原文&gt;&gt;</a>
+        </div>
+    </div>
+</div>
