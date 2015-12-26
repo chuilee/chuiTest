@@ -20,7 +20,7 @@ console.log("reduceRight",_arrReduceRight);
 var _arrWhere = _.where(_oarr, {name: "CHUI"});
 console.log("where",_arrWhere);
 
-// contains 注意: 因为使用 === 比较, 所以只能检测 非引用类型;
+// contains 注意: 因为使用 === 比较, 所以只能检测 非引用类型;`
 var _arrContains = _.contains(_arr, "chuilee");
 console.log(_arrContains);
 
