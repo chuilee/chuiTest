@@ -29,9 +29,9 @@ var _oarr = [{
 var _arrCompact = _.compact(_2arr);
 console.log(_arrCompact);
 
-// flatlen 
+// flatlen 将多维数组转换成一维数组，传入true，只转换一层
 var _arrFlatten = _.flatten(_2arr, true);
-console.log(_arrFlatten);
+console.log("flatten",_arrFlatten);
 
 // without 使用 === 测试;
 var _arrWithout = _.without(_arr, 1,2,3);
