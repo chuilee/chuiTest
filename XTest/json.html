@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON.parse</title>
+	<script src="../asset/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<div id="container">1111</div>
+<script>
+	$.ajax({
+		url: "http://resources.lanmeihui.com.cn/json/portal/home_informations.json",
+		success: function(data){
+				alert(1111)
+				alert(data[1]);
+		}
+	});
+</script>
+</body>
+
+</html>
