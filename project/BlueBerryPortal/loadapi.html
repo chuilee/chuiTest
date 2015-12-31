@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="lib/jquery/dist/jquery-1.11.3.min.js"></script>
+    <script>
+        $.ajax({
+            url: "http://www.lanmeihui.com.cn/Api/InformationApi.aspx",
+            data: {
+                action:"GetInformations",
+                page: 1,
+                rows: 20
+            },
+            success: function(data){
+                alert(data);
+            },
+            error: function(jqXHR, textStatus, error){
+                alert(error);
+            }
+        })
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

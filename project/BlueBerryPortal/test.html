@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="lib/jquery/dist/jquery-1.11.3.min.js"></script>
+    <script>
+    // var url = "http://resources.lanmeihui.com.cn/html/web/portalinformation/931e194b-88d6-4611-ba44-e5b2b98a5537.html";
+    var url = "http://resources.lanmeihui.com.cn/json/portal/portal_information_type.json";
+    loadCrossJson(url, function(data) {
+        alert(data);
+    });
+
+    function loadCrossJson(url, callback) {
+        if (document.attachEvent && window.XDomainRequest) {
+            if (window.XDomainRequest) {
+                var xdr = new XDomainRequest();
+                var query = url;
+                if (xdr) {
+                    xdr.onload = function() {
+                        callback(xdr.responseText);
+                    }
+                    xdr.onerror = function() { /* error handling here */ }
+                    xdr.open('GET', query);
+                    xdr.send();
+                }
+            }
+        } else {
+            $.ajax({
+                type: "GET",
+                crossDomain: true,
+                url: url,
+                // contentType: "application/json; charset=utf-8",
+                // dataType: "json",
+                success: function(data) {
+                    callback(data);
+                },
+                error: function(response, textStatus, errorThrown) {
+                    // alert('not OK ' + response.responseText);
+                    // alert('not OK ' + textStatus.responseText);
+                    // alert('not OK ' + errorThrown);
+                }
+            });
+        }
+    }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -14,6 +14,7 @@ requirejs.config({
 		bootstrap_affix:"bootstrap-sass/assets/javascripts/bootstrap/affix",
 		underscore: "underscore/underscore-min",
 		backbone: "backbone/backbone-min",
+		partners:"../assets/js/jsonData",
 		text: "requirejs-text/text",
 		common: "../common/common",
 		jqurl: "../assets/js/plugins/jquery.url"
@@ -33,6 +34,7 @@ requirejs.config({
 		bootstrap_tab:["jquery"],
 		bootstrap_carousel: ["jquery"],
 		bootstrap_affix: ["jquery"],
-		jqurl: ["jquery"]
+		jqurl: ["jquery"],
+		fullPage: ["jquery"]
 	}
 });

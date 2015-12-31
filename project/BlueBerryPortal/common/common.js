@@ -3,11 +3,13 @@
 
 define([], function () {
 	return {
-		DOMAIN: "http://localhost:8001/example/",
-		DBHOST: "http://192.168.10.109/",
-		IMGDIR: "images.lanmeihui.com.cn/images/web/portalinformation/title/",
+		DOMAIN: "http://www.lanmeihui.com.cn/",
+		DBHOST: "http://www.lanmeihui.com.cn/",
+		IMGDIR: "image.lanmeihui.com.cn/images/web/portalinformation/title/",
 		CATEGORYSRC: "http://resources.lanmeihui.com.cn/json/portal/portal_information_type.json",
-		INFORMATIONAPI: "http://192.168.10.109/PortalApi/Api/InformationApi.aspx",
-		DETAILSSRC: "http://resources.lanmeihui.com.cn/html/web/portalinformation/"
+		INFORMATIONAPI: "http://www.lanmeihui.com.cn/Api/InformationApi.aspx",
+		DETAILSSRC: "http://resources.lanmeihui.com.cn/html/web/portalinformation/",
+		HOMEINFO: "http://resources.lanmeihui.com.cn/json/portal/home_informations.json",
+		JOBS: "http://www.lanmeihui.com.cn/api/informationapi.aspx?action=GetPublishedJobs"
 	};
 });

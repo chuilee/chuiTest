@@ -1,32 +1,92 @@
 {
     "item1": {
-        "name": "蓝莓荟",
-        "logo": "img/partners/code.jpg",
-        "logo_active": "img/partners/code.jpg",
+        "name": "gimc",
+        "logo": "img/grey/gimc.png",
+        "logo_active": "img/color/gimc.png",
         "url": "www.bootcss.com"
     },
-    "item2": {
-        "name": "蓝莓荟",
-        "logo": "img/partners/code.jpg",
-        "logo_active": "img/partners/code.jpg",
+     "item2": {
+        "name": "万达",
+        "logo": "img/grey/wanda.png",
+        "logo_active": "img/color/wanda.png",
         "url": "www.bootcss.com"
     },
     "item3": {
-        "name": "蓝莓荟",
-        "logo": "img/partners/code.jpg",
-        "logo_active": "img/partners/code.jpg",
+        "name": "Forbes",
+        "logo": "img/grey/forbes.png",
+        "logo_active": "img/color/forbes.png",
         "url": "www.bootcss.com"
     },
     "item4": {
-        "name": "蓝莓荟",
-        "logo": "img/partners/code.jpg",
-        "logo_active": "img/partners/code.jpg",
+        "name": "新华社",
+        "logo": "img/grey/forbes.png",
+        "logo_active": "img/color/xinhuashe.png",
         "url": "www.bootcss.com"
     },
     "item5": {
-        "name": "蓝莓荟",
-        "logo": "img/partners/code.jpg",
-        "logo_active": "img/partners/code.jpg",
+        "name": "百度",
+        "logo": "img/grey/baidu.png",
+        "logo_active": "img/color/baidu.png",
+        "url": "www.bootcss.com"
+    },
+    "item6": {
+        "name": "分众传媒",
+        "logo": "img/grey/focus.png",
+        "logo_active": "img/color/focus.png",
+        "url": "www.bootcss.com"
+    },
+    "item7": {
+        "name": "全景",
+        "logo": "img/grey/quanjing.png",
+        "logo_active": "img/color/quanjing.png",
+        "url": "www.bootcss.com"
+    },
+      "item8": {
+        "name": "腾讯",
+        "logo": "img/grey/qq.png",
+        "logo_active": "img/color/qq.png",
+        "url": "www.bootcss.com"
+    },
+    "item9": {
+        "name": "BlueFocus",
+        "logo": "img/grey/bluefocus.png",
+        "logo_active": "img/color/bluefocus.png",
+        "url": "www.bootcss.com"
+    },
+    "item10": {
+        "name": "五叶神",
+        "logo": "img/grey/wuyeshen.png",
+        "logo_active": "img/color/wuyeshen.png",
+        "url": "www.bootcss.com"
+    },
+     "item11": {
+        "name": "汤臣倍健",
+        "logo": "img/grey/by-health.png",
+        "logo_active": "img/color/by-health.png",
+        "url": "www.bootcss.com"
+    },
+     "item12": {
+        "name": "汤臣倍健",
+        "logo": "img/grey/yili.png",
+        "logo_active": "img/color/yili.png",
+        "url": "www.bootcss.com"
+    },
+     "item13": {
+        "name": "阿里巴巴",
+        "logo": "img/grey/ali.png",
+        "logo_active": "img/color/ali.png",
+        "url": "www.bootcss.com"
+    },
+    "item14": {
+        "name": "京东",
+        "logo": "img/grey/jd.png",
+        "logo_active": "img/color/jd.png",
+        "url": "www.bootcss.com"
+    },
+    "item14": {
+        "name": "小米",
+        "logo": "img/grey/mi.png",
+        "logo_active": "img/color/mi.png",
         "url": "www.bootcss.com"
     }
 }
