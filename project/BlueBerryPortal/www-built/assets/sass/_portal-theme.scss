@@ -24,8 +24,8 @@ body.fixed-header {
 @include sprites($spritesheet-sprites);
 //查看更多按钮
 .more {
+    display: inline-block;
     background: transparent;
-    display: none;
     border: 1px solid #00b1ff;
     outline: none;
     border-radius: 20px;
@@ -50,12 +50,13 @@ body.fixed-header {
 
 //头部固定栏
 .sys-layout-index {
+    position: fixed;
     min-width: 1200px;
     width: 100%;
     height: 80px;
     background: rgba(255, 255, 255, 1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-    position: fixed;
+    border-bottom: 1px solid #eee \9;
     z-index: 99999;
 }
 
@@ -113,6 +114,11 @@ body.fixed-header {
     padding: 0;
     width: 800px;
     height: 190px;
+}
+
+#zhiku .carousel-control,
+#partners .carousel-control {
+    filter: none;
 }
 
 .sys-layout-ads {
@@ -177,8 +183,6 @@ body.fixed-header {
                 margin-top: 50px;
                 margin-left: 23px;
                 padding: 0;
-                background: url(../../assets/images/yuqing.png) no-repeat center center;
-                background: url(../../page/img/yuqing.png) no-repeat center center;
                 background: url(../../page/img/yuqing.png) no-repeat center center;
             }
             .ads-icon-right {
@@ -188,8 +192,6 @@ body.fixed-header {
                 margin-top: 50px;
                 margin-left: 23px;
                 padding: 0;
-                background: url(../../assets/images/pingtai.png) no-repeat center center;
-                background: url(../../page/img/pingtai.png) no-repeat center center;
                 background: url(../../page/img/pingtai.png) no-repeat center center;
             }
             .intro-left,
@@ -251,14 +253,10 @@ body.fixed-header {
             top: 50%;
         }
         .left {
-            background: url(../../assets/images/left_normal.png) no-repeat center center;
-            background: url(../../page/img/left_normal.png) no-repeat center center;
             background: url(../../page/img/left_normal.png) no-repeat center center;
             left: 15%;
         }
         .right {
-            background: url(../../assets/images/right_normal.png) no-repeat center center;
-            background: url(../../page/img/right_normal.png) no-repeat center center;
             background: url(../../page/img/right_normal.png) no-repeat center center;
             right: 15%;
         }
@@ -295,7 +293,7 @@ body.fixed-header {
 }
 
 #product {
-    display: none;
+    // display: none;
     .container-product {
         position: absolute;
         left: 50%;
@@ -324,24 +322,32 @@ body.fixed-header {
                 &.status-hover {
                     .service-details {
                         display: block;
+                        opacity: 1;
+                        height: 350px;
+                        transition: all .3s;
                     }
                 }
                 .service-details {
-                    display: none;
+                    display: block;
+                    display: none \9;
+                    opacity: 0;
                     position: absolute;
-                    top: -20px;
-                    left: -20px;
+                    top: -30px;
+                    left: -30px;
                     width: 260px;
-                    height: 350px;
+                    height: 0;
                     background: #1eb1fc;
                     box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+                    overflow: hidden;
                     h3 {
                         padding: 10px;
+                        width: 260px;
                         color: #fff;
                         font-size: 18px;
                     }
                     p {
                         padding: 0 18px;
+                        width: 260px;
                         color: #fff;
                         line-height: 1.8;
                         text-align: left;
@@ -368,25 +374,20 @@ body.fixed-header {
                     text-align: center;
                     margin: 0 auto;
                 }
-                .platform {
-                    background: url(../../assets/images/platform_normal.png) no-repeat center;
-                    background: url(../../page/img/platform_normal.png) no-repeat center;
-                    background: url(../../page/img/platform_normal.png) no-repeat center;
+                .qunfan {
+                    background: url(../../page/img/qunfan.png) no-repeat center bottom;
                 }
-                .business {
-                    background: url(../../assets/images/business_normal.png) no-repeat center;
-                    background: url(../../page/img/business_normal.png) no-repeat center;
-                    background: url(../../page/img/business_normal.png) no-repeat center;
+                .jiangtang {
+                    background: url(../../page/img/jiangtang.png) no-repeat center bottom;
                 }
-                .marking {
-                    background: url(../../assets/images/marking_normal.png) no-repeat center;
-                    background: url(../../page/img/marking_normal.png) no-repeat center;
-                    background: url(../../page/img/marking_normal.png) no-repeat center;
+                .zhiye {
+                    background: url(../../page/img/zhiye.png) no-repeat center bottom;
                 }
                 .imei {
-                    background: url(../../assets/images/imei_normal.png) no-repeat center;
-                    background: url(../../page/img/imei_normal.png) no-repeat center;
-                    background: url(../../page/img/imei_normal.png) no-repeat center;
+                    background: url(../../page/img/imei.png) no-repeat center bottom;
+                }
+                .kuajie {
+                    background: url(../../page/img/kuajie.png) no-repeat center bottom;
                 }
                 .product-type {
                     display: block;
@@ -400,7 +401,7 @@ body.fixed-header {
 }
 
 #success {
-    display: none;
+    // display: none;
     background: url(../../page/img/example.jpg) no-repeat center;
     background-size: cover;
     .head {
@@ -550,7 +551,7 @@ body.fixed-header {
 
 .carousel-tab {
     padding-left: 0;
-    list-style: none;
+    // list-style: none;
     width: 100%;
     li {
         display: inline-block;
@@ -573,7 +574,7 @@ body.fixed-header {
 
 // 合作伙伴
 #partners {
-    display: none;
+    // display: none;
     background: url(../../page/img/partner.jpg) no-repeat center;
     background-size: cover;
     .container-partners {
@@ -731,7 +732,7 @@ body.fixed-header {
 
 // 智库
 #zhiku {
-    display: none;
+    // display: none;
     background: #fff;
     .container-partners {
         position: absolute;
@@ -769,7 +770,10 @@ body.fixed-header {
                     height: 64px;
                     background: #fff;
                     border-bottom: 0;
+                    border: 1px solid #dfe2e6 \9;
+                    background: #eee \9;
                     box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+                    transition: all .3s;
                 }
             }
             .zhiku-item {
@@ -795,7 +799,8 @@ body.fixed-header {
                 .name {
                     padding-left: 10px;
                     width: 100px;
-                    line-height: 53px;
+                    line-height: 1;
+                    padding-top: 22px;
                 }
                 .head {
                     margin: 0;
@@ -856,7 +861,7 @@ body.fixed-header {
 
 #about {
     position: relative;
-    display: none;
+    // display: none;
     background: url(../../page/img/about.jpg) no-repeat center;
     background-size: cover;
     .container-about {
@@ -917,7 +922,7 @@ body.fixed-header {
 }
 
 #contact {
-    display: none;
+    // display: none;
     background: url(../../page/img/contact.jpg) no-repeat center;
     background-size: cover;
     .container-contact {

@@ -6,18 +6,37 @@
     <title>蓝莓会－广州蓝莓荟信息科技有限公司</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-    <meta name="keywords" content="蓝莓会是中国首个企业公关品牌营销人与媒体人、创意人交流互动的移动社群。">
+    <meta name="keywords" content="蓝莓会，蓝莓荟，互联网，营销，企业内容，传播，精英社群，案例，活动，招聘">
     <meta name="description" content="蓝莓会是中国首个企业公关品牌营销人与媒体人、创意人交流互动的移动社群。我们的产品有蓝莓营销学院、蓝莓之夜、蓝莓大讲堂、蓝莓群访">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/javascript.fullPage.css" />
-    <script data-main="js/app/index/index-content" src="lib/requirejs/require.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.fullPage.css" />
+    <script src="js/lib/jquery/dist/jquery-1.11.3.min.js"></script>
+    <script src="js/lib/fullpage.js/jquery.fullPage.min.js"></script>
+    <script data-main="js/app/index/index-content" src="js/lib/requirejs/require.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-       <script src="../assets/js/html5shiv.min.js"></script>
-      <script src="../assets/js/respond.min.js"></script>
+       <script src="../js/html5shiv.min.js"></script>
+      <script src="../js/respond.min.js"></script>
     <![endif]-->
+    <script>
+        $(function(){
+            var head = $("#head");
+            $('#fullpage').fullpage({
+                menu: '#menu',
+                anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7'],
+                scrollingSpeed: 1000,
+                css3: true,
+                afterLoad: function(anchorLink, index) {
+                    head.css("background", "rgba(255,255,255, 1)");
+                },
+                onLeave: function(index, nextIndex, direction) {
+                    head.css("background", "rgba(255,255,255, .5)");
+                }
+            });
+        })
+    </script>
 </head>
 
 <body>
@@ -27,18 +46,18 @@
         </div>
         <div class="sys-layout-link">
             <ul id="menu" class="nav nav-pills">
-                <li data-menuanchor="page1" role="presentation" class="active"><a href="#page1">首页</a></li>
-                <li data-menuanchor="page2" role="presentation"><a href="#page2">关于我们</a></li>
-                <li data-menuanchor="page3" role="presentation"><a href="#page3">蓝莓服务</a></li>
-                <li data-menuanchor="page4" role="presentation"><a href="#page4">蓝莓动态</a></li>
-                <li data-menuanchor="page5" role="presentation"><a href="#page5">蓝莓知库</a></li>
-                <li data-menuanchor="page6" role="presentation"><a href="#page6">合作伙伴</a></li>
-                <li data-menuanchor="page7" role="presentation"><a href="#page7">联系我们</a></li>
+                <li data-menuanchor="page1" class="active"><a href="#page1">首页</a></li>
+                <li data-menuanchor="page2"><a href="#page2">关于我们</a></li>
+                <li data-menuanchor="page3"><a href="#page3">蓝莓服务</a></li>
+                <li data-menuanchor="page4"><a href="#page4">蓝莓动态</a></li>
+                <li data-menuanchor="page5"><a href="#page5">蓝莓知库</a></li>
+                <li data-menuanchor="page6"><a href="#page6">合作伙伴</a></li>
+                <li data-menuanchor="page7"><a href="#page7">联系我们</a></li>
             </ul>
         </div>
     </div>
     <div id="fullpage">
-        <div id="ads" class="section" data-anchor="page1">
+        <div id="ads" class="section">
             <div class="sys-layout-ads">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
@@ -104,7 +123,7 @@
                 </div>
             </div>
         </div>
-        <div id="about" class="section" data-anchor="page2">
+        <div id="about" class="section">
             <div class="container-about">
                 <h1 class="head">关于蓝莓会</h1>
                 <h2 class="en-head">About Us</h2>
@@ -117,7 +136,7 @@
                 <a class="more" href="page/about.html" style="display: block;">查看更多</a>
             </div>
         </div>
-        <div id="product" class="section" data-anchor="page3">
+        <div id="product" class="section">
             <div class="container-product">
                 <h1 class="head">蓝莓服务</h1>
                 <h2 class="en-head">Products And Service</h2>
@@ -175,7 +194,7 @@
                 </ul>
             </div>
         </div>
-        <div id="success" class="section" data-anchor="page4">
+        <div id="success" class="section">
             <div class="container-example" style="position: absolute;top: 50%; margin-top: -254px; left: 50%; margin-left:-600px; ">
                 <h1 class="head">蓝莓动态</h1>
                 <h2 class="en-head">News</h2>
@@ -184,7 +203,7 @@
                 <a class="more" href="page/news-list.html">查看更多</a>
             </div>
         </div>
-        <div id="zhiku" class="section" data-anchor="page5">
+        <div id="zhiku" class="section">
             <div class="container-partners">
                 <h1 class="head">蓝莓智库</h1>
                 <h2 class="en-head">Our Think Tank</h2>
@@ -205,7 +224,7 @@
                 </div>
             </div>
         </div>
-        <div id="partners" class="section" data-anchor="page6">
+        <div id="partners" class="section">
             <div class="container-partners" style="position: absolute;top: 50%; margin-top: -254px; left: 50%; margin-left:-600px; ">
                 <h1 class="head">合作伙伴</h1>
                 <h2 class="en-head">Our Partners</h2>
@@ -226,7 +245,7 @@
                 </div>
             </div>
         </div>
-        <div id="contact" class="section" data-anchor="page7">
+        <div id="contact" class="section">
             <div>
                 <div class="container-contact" style="position: absolute;top: 50%; margin-top: -254px; left: 50%; margin-left:-600px; ">
                     <h1 class="head">联系我们</h1>

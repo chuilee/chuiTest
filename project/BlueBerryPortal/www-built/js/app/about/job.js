@@ -1,11 +1,11 @@
-require(["../common/config.js"], function() {
+require(["../../common/config"], function() {
     require([
         "underscore",
         "jquery",
         "text!templates/about/job.html",
         "common",
         "bootstrap_affix",
-        "js/plugins/elevator.min",
+        "plugins/elevator.min",
         "jqurl",
         "app/public/header-footer"
     ], function(_, $, jobView, common) {

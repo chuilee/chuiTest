@@ -1,61 +1,40 @@
-require(["../common/config"], function() {
+require(["../../../js/common/config_index"], function() {
     require([
         "underscore",
         "jquery",
-        "assets/js/loadCorsJson",
+        "loadCorsJson",
         "text!templates/index/works.html",
-        "text!assets/js/jsonData.json",
-        "text!assets/js/ThinkTank.json",
+        "text!jsonData.json",
+        "text!ThinkTank.json",
         "common",
-        "fullPage",
         "bootstrap"
     ], function(_, $, loadCorsJson, worksView, partnerJSON, ThinkTank, common) {
-        var head = $("#head");
-        $('#fullpage').fullpage({
-            anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7'],
-            menu: '#menu',
-            scrollingSpeed: 1000,
-            css3: true,
-            afterRender: function() {
-                $("#about").show();
-                $("#product").show();
-                $("#success").show();
-                $("#partners").show();
-                $("#zhiku").show();
-                $("#contact").show();
-                $(".more").css("display", "block");
 
-                var b_version = navigator.appVersion;
-                var version = b_version.split(";");
-                if (version.length > 1) {
-                    var trim_Version = version[1].replace(/[ ]/g, "");
-                    if (trim_Version == "MSIE9.0" || trim_Version == "MSIE8.0") {
-                        for (var i = 0; i < partners.length; i++) {
-                            (function(i) {
-                                for (var j in partners[i]) {
-                                    $(".container-partner>.list>.list-item:eq(" + i + ")").hover(function() {
-                                        $(".container-partner>.list>.list-item:eq(" + i + ")>.fanzhuan>a>.fanzhuan1").hide();
-                                        $(".container-partner>.list>.list-item:eq(" + i + ")").css("background", "url(/page/" + partners[i][j].logo_active + ") no-repeat center");
-                                    }, function() {
-                                        $(".container-partner>.list>.list-item:eq(" + i + ")").html("<div class='fanzhuan'><div class='fanzhuan1'></div><div class='fanzhuan2 gimc-color'></div></div>");
-                                        $(".container-partner>.list>.list-item:eq(" + i + ")").css("background", "url(/page/" + partners[i][j].logo + ") no-repeat center");
-                                    });
-                                }
-                            })(i);
-                        }
-                    }
-                    if (trim_Version == "MSIE8.0") {
-                        $("#head").css("background", "#ffffff");
+        (function() {
+            var b_version = navigator.appVersion;
+            var version = b_version.split(";");
+            if (version.length > 1) {
+                var trim_Version = version[1].replace(/[ ]/g, "");
+                if (trim_Version == "MSIE9.0" || trim_Version == "MSIE8.0") {
+                    for (var i = 0; i < partners.length; i++) {
+                        (function(i) {
+                            for (var j in partners[i]) {
+                                $(".container-partner>.list>.list-item:eq(" + i + ")").hover(function() {
+                                    $(".container-partner>.list>.list-item:eq(" + i + ")>.fanzhuan>a>.fanzhuan1").hide();
+                                    $(".container-partner>.list>.list-item:eq(" + i + ")").css("background", "url(/page/" + partners[i][j].logo_active + ") no-repeat center");
+                                }, function() {
+                                    $(".container-partner>.list>.list-item:eq(" + i + ")").html("<div class='fanzhuan'><div class='fanzhuan1'></div><div class='fanzhuan2 gimc-color'></div></div>");
+                                    $(".container-partner>.list>.list-item:eq(" + i + ")").css("background", "url(/page/" + partners[i][j].logo + ") no-repeat center");
+                                });
+                            }
+                        })(i);
                     }
                 }
-            },
-            afterLoad: function(anchorLink, index) {
-                head.css("background", "rgba(255,255,255, 1)");
-            },
-            onLeave: function(index, nextIndex, direction) {
-                head.css("background", "rgba(255,255,255, .5)");
+                if (trim_Version == "MSIE8.0") {
+                    $("#head").css("background", "#ffffff");
+                }
             }
-        });
+        })();
 
         (function() {
             // 合作伙伴
@@ -73,7 +52,7 @@ require(["../common/config"], function() {
                 for (var i = 0; i < pages; i++) {
                     var item = $('<div class="item" data-item="' + key + '"><ul class="list"></ul></div>').appendTo($("#carouselInner"));
                     var item_ul = item.find(".list");
-                    if (i == 0) {
+                    if (i === 0) {
                         $('<li data-target="#carousel-example-generic2" data-slide-to="' + count + '">' + key + '</li>').appendTo(indicators);
                     }
                     count++;
@@ -81,7 +60,7 @@ require(["../common/config"], function() {
                     _.each(partner, function(item, index, value) {
                         if (index == i) {
                             _.each(item, function(value, key, list) {
-                                var html = '<li class="list-item">' + '<div class="fanzhuan">' + '<a target="_blank" href="' + value.url + '">' + '<div class="fanzhuan1 gimc" style="background: url(' + value.logo + ') 50% 50% no-repeat;"></div>' + '<div class="fanzhuan2 gimc-color" style="background: url(' + value.logo_active + ') 50% 50% no-repeat;"></div>' + '</a></div></li>';
+                                var html = '<li class="list-item">' + '<div class="fanzhuan">' + '<a target="_blank" href="javascript:void(0);">' + '<div class="fanzhuan1 gimc" style="background: url(' + value.logo + ') 50% 50% no-repeat;"></div>' + '<div class="fanzhuan2 gimc-color" style="background: url(' + value.logo_active + ') 50% 50% no-repeat;"></div>' + '</a></div></li>';
                                 $(html).appendTo(item_ul);
                             });
                         }
@@ -124,7 +103,7 @@ require(["../common/config"], function() {
 
                 for (var i = 0; i < pages; i++) {
                     var tankItem = $('<div class="item" data-item="' + key + '"></div>').appendTo(carouselInner);
-                    if (i == 0) {
+                    if (i === 0) {
                         $('<li data-target="#carousel-example-generic3" data-slide-to="' + count + '">' + key + '</li>').appendTo(indicators);
                     }
                     count++;
@@ -147,7 +126,7 @@ require(["../common/config"], function() {
                 "mouseleave": function() {
                     $(this).removeClass("status-hover");
                 }
-            })
+            });
 
             indicators.find(":first-child").addClass("active");
             carouselInner.find(".item").eq(0).addClass("active");
@@ -201,7 +180,8 @@ require(["../common/config"], function() {
                 "mouseleave": function() {
                     $(this).css("z-index", 10).removeClass("status-hover");
                 }
-            })
+            });
         })();
     });
+
 })

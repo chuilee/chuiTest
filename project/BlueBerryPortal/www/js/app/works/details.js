@@ -1,13 +1,13 @@
-require(["../../../common/config.js"], function() {
+require(["../../common/config"], function() {
     require([
         "jquery",
         "underscore",
-        "js/loadCorsJson",
+        "loadCorsJson",
         "text!templates/public/details-category.html",
         "text!templates/public/details.html",
         "common",
         "bootstrap_affix",
-        "js/plugins/elevator.min",
+        "plugins/elevator.min",
         "jqurl",
         "app/public/header-footer"
     ], function($, _, loadCorsJson, categoryView, detailsView, common) {

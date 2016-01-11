@@ -1,4 +1,4 @@
-require(["../../../common/config.js"], function() {
+require(["../../common/config"], function() {
     require([
         "jquery",
         "underscore",
@@ -6,7 +6,7 @@ require(["../../../common/config.js"], function() {
         "text!templates/page/list.html",
         "common",
         "bootstrap_affix",
-        "js/plugins/elevator.min",
+        "plugins/elevator.min",
         "jqurl",
         "app/public/header-footer"
     ], function($, _, categoryView, listView, common) {

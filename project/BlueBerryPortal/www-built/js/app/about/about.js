@@ -1,8 +1,8 @@
-require(["../common/config.js"], function() {
+require(["../../common/config"], function() {
     require([
         "jquery",
         "bootstrap_affix",
-        "js/plugins/elevator.min",
+        "plugins/elevator.min",
         "jqurl",
         "app/public/header-footer"
     ], function($, _, categoryView, listView, common) {
