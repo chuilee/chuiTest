@@ -1,4 +1,4 @@
-require(["../../../js/common/config_index"], function() {
+require([], function() {
     require([
         "underscore",
         "jquery",

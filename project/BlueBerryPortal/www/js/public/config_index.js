@@ -15,7 +15,7 @@ requirejs.config({
 		backbone: "lib/backbone/backbone-min",
 		partners:"../assets/js/jsonData",
 		text: "lib/requirejs-text/text",
-		common: "common/common",
+		common: "public/common",
 		jqurl: "plugins/jquery.url"
 	},
 	shim: {
@@ -24,16 +24,23 @@ requirejs.config({
 		},
 
 		backbone: {
-			deps: ["jquery", "underscore"],
+			deps: ["underscore"],
 			exports: "Backbone"
 		},
 		
-		bootstrap: ["jquery"],
-		bootstrap_dropdown: ["jquery"],
-		bootstrap_tab:["jquery"],
-		bootstrap_carousel: ["jquery"],
-		bootstrap_affix: ["jquery"],
-		jqurl: ["jquery"],
-		fullPage: ["jquery"]
+		bootstrap: {
+			deps: ["jquery"],
+			exports: "$"
+		},
+		
+		jqurl: {
+			deps: ["jquery"],
+			exports: "$"
+		},
+		
+		fullPage: {
+			deps: ["jquery"],
+			exports: "$"
+		}
 	}
 });

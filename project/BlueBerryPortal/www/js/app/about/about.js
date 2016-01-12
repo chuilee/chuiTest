@@ -1,4 +1,4 @@
-require(["../../common/config"], function() {
+require([], function() {
     require([
         "jquery",
         "bootstrap_affix",

@@ -13,12 +13,15 @@ requirejs.config({
 		bootstrap_affix:"lib/bootstrap-sass/assets/javascripts/bootstrap/affix",
 		underscore: "lib/underscore/underscore-min",
 		backbone: "lib/backbone/backbone-min",
-		partners:"../assets/js/jsonData",
 		text: "lib/requirejs-text/text",
-		common: "common/common",
-		jqurl: "plugins/jquery.url"
+		jqurl: "plugins/jquery.url",
+		common: "public/common"
 	},
 	shim: {
+		jquery: {
+			exports: "$"
+		},
+
 		underscore: {
 			exports: "_"
 		},
@@ -28,12 +31,33 @@ requirejs.config({
 			exports: "Backbone"
 		},
 		
-		bootstrap: ["jquery"],
-		bootstrap_dropdown: ["jquery"],
-		bootstrap_tab:["jquery"],
-		bootstrap_carousel: ["jquery"],
-		bootstrap_affix: ["jquery"],
-		jqurl: ["jquery"],
-		fullPage: ["jquery"]
+		bootstrap: {
+			deps: ["jquery"],
+			exports: "$"
+		},
+		bootstrap_dropdown: {
+			deps: ["jquery"],
+			exports: "$"
+		},
+		bootstrap_tab: {
+			deps: ["jquery"],
+			exports: "$"
+		},
+		bootstrap_carousel: {
+			deps: ["jquery"],
+			exports: "$"
+		},
+		bootstrap_affix: {
+			deps: ["jquery"],
+			exports: "$"
+		},
+		jqurl: {
+			deps: ["jquery"],
+			exports: "$"
+		},
+		fullPage: {
+			deps: ["jquery"],
+			exports: "$"
+		}
 	}
 });
