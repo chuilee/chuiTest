@@ -1,4 +1,4 @@
-require([], function() {
+require(["../../public/config"], function() {
     require([
         "underscore",
         "jquery",
@@ -7,8 +7,23 @@ require([], function() {
         "text!jsonData.json",
         "text!ThinkTank.json",
         "common",
-        "bootstrap"
+        "bootstrap",
+        "fullPage1"
     ], function(_, $, loadCorsJson, worksView, partnerJSON, ThinkTank, common) {
+
+        var head = $("#head");
+        $('#fullpage').fullpage({
+            menu: '#menu',
+            anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7'],
+            scrollingSpeed: 1000,
+            css3: true,
+            afterLoad: function(anchorLink, index) {
+                head.css("background", "rgba(255,255,255, 1)");
+            },
+            onLeave: function(index, nextIndex, direction) {
+                head.css("background", "rgba(255,255,255, .5)");
+            }
+        });
 
         (function() {
             var b_version = navigator.appVersion;

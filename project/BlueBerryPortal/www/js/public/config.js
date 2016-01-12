@@ -6,6 +6,7 @@ requirejs.config({
 		templates: "./templates",
 		jquery:"lib/jquery/dist/jquery-1.11.3.min",
 		fullPage:"lib/fullpage.js/jquery.fullPage.min",
+		fullPage1:"lib/fullpage.js/jquery.fullPage",
 		bootstrap: "lib/bootstrap-sass/assets/javascripts/bootstrap.min",
 		bootstrap_dropdown: "lib/bootstrap-sass/assets/javascripts/bootstrap/dropdown",
 		bootstrap_tab:"lib/bootstrap-sass/assets/javascripts/bootstrap/tab",

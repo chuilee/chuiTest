@@ -87,6 +87,16 @@
 
     var defaultScrollHandler;
 
+    //IE < 10 pollify for requestAnimationFrame
+    window.requestAnimFrame = function(){
+        return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function(callback){ callback() }
+    }();
+
     $.fn.fullpage = function(options) {
 
         // common jQuery objects
@@ -527,9 +537,19 @@
             //setting the class for the body element
             setBodyClass();
 
-            $window.on('load', function() {
+            // $window.on('load', function() {
+            //     console.log('test');
+            //     scrollToAnchor();
+            // });
+            
+            if (document.readyState != "complete") {
+                $window.on('load', function(){
+                    scrollToAnchor();
+                });
+            } else {
                 scrollToAnchor();
-            });
+            }
+
         }
 
         /**
@@ -1159,16 +1179,6 @@
                 silentLandscapeScroll($(this), 'internal');
             });
         }
-
-        //IE < 10 pollify for requestAnimationFrame
-        window.requestAnimFrame = function(){
-            return window.requestAnimationFrame ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame ||
-                window.oRequestAnimationFrame ||
-                window.msRequestAnimationFrame ||
-                function(callback){ callback() }
-        }();
 
         /**
         * Scrolls the site to the given element and scrolls to the slide if a callback is given.
