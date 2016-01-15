@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>VUE TodoMVC</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+    <script data-main="js/main" src="js/lib/requirejs/require.js"></script>
+</head>
+
+<body>
+	<span class="label label-danger" id="example">{{message}}</span>
+	<button type="button" class="btn btn-primary" id="change-btn">click me!</button>
+	<div class="container">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="example2">
+			<example></example>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="js-todos">
+			<ul class="list-group" v-show="show">
+				<li class="list-group-item" v-for="todo in todos">{{todo.text}}</li>
+			</ul>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="bindUrl">
+			<a v-bind:href="url" target="_blank">baidu</a>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div id="computed">
+				<p>a is {{ a }}, b is {{ b }}</p>
+			</div>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div id="watch">
+				<p>a is {{ a }}, b is {{ b }}</p>
+			</div>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="lazy">
+			<span class="label label-success">{{ name }}</span>
+			<input type="text" v-model="name" lazy>
+		</div>
+	</div>
+</body>
+
+</html>
