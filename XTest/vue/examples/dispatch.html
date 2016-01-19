@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Components*VUE</title>
+		<title>props  Vue</title>
 
 		<!-- Bootstrap CSS -->
 		<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -15,16 +15,17 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		<script data-main="../js/views/slot" src="../js/lib/requirejs/require.js"></script>
+		<script data-main="../js/views/dispatch" src="../js/lib/requirejs/require.js"></script>
 	</head>
 	<body>
 		<div class="container">
-			<div id="slot">
-				<my-component>
-					<p slot="one">one</p>
-					<p slot="two">two</p>
-					<p>default</p>
-				</my-component>
+			<template id="childTpl">
+				<input v-model="msg" type="text" class="form-control">
+				<button v-on:click="notify" type="button" class="btn btn-default">dispatch</button>
+			</template>
+			<div id="parent">
+				<span class="label label-success">message: {{ message | json }}</span>
+				<child v-ref:profile></child>
 			</div>
 		</div>
 	</body>

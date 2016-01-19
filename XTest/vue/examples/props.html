@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Components*VUE</title>
+		<title>props  Vue</title>
 
 		<!-- Bootstrap CSS -->
 		<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -15,16 +15,13 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		<script data-main="../js/views/slot" src="../js/lib/requirejs/require.js"></script>
+		<script data-main="../js/views/props" src="../js/lib/requirejs/require.js"></script>
 	</head>
 	<body>
-		<div class="container">
-			<div id="slot">
-				<my-component>
-					<p slot="one">one</p>
-					<p slot="two">two</p>
-					<p>default</p>
-				</my-component>
+		<div class="container" id="props">
+			<input v-model="parentMsg" type="text" name="" id="parent" class="form-control" value="{{msg}}" required="required" pattern="" title="">
+			<div>
+				<child :msg.sync="parentMsg"></child>
 			</div>
 		</div>
 	</body>
