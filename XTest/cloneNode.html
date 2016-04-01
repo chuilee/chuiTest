@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cloneNode</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
+</head>
+<body>
+	<div id="node">
+		<ul class="list-group">
+			<li class="list-group-item">Item 1</li>
+			<li class="list-group-item">Item 2</li>
+			<li class="list-group-item">Item 3</li>
+		</ul>
+	</div>
+	<script>
+    var node = document.querySelector('#node');
+    var clonenode = node.cloneNode(true)
+    var deepClonenode = node.cloneNode(true);
+
+    clonenode.setAttribute('id', 'clonenode');
+
+    deepClonenode.setAttribute('id', 'deepClonenode');
+
+    document.body.appendChild(clonenode);
+
+    document.body.appendChild(deepClonenode);
+
+    console.log(deepClonenode.getBoundingClientRect())
+
+    console.log(deepClonenode.offsetWidth)
+
+  </script>
+</body>
+</html>

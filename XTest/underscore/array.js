@@ -1,5 +1,5 @@
 'use strict';
-var _ = require('../../../node_modules/underscore');
+var _ = require('../../bower_components/underscore/underscore-min');
 
 var _arr = [1, 2, 3, 4, 5, 6];
 var _2arr = [
@@ -55,3 +55,22 @@ console.log(_arrSortedIndex);
 //uniq  返回array去重后副本, 使用 === 作比较
 var _2arrUniq = _.uniq(_2arr);
 console.log(_2arrUniq);
+
+// _.size
+var e = new Set()
+e.add({name: 'jay', age: 40})
+e.add(13)
+e.add(16)
+e.add(-0)
+
+console.log('_.size(e) = '+ _.size(e))
+
+console.log(typeof e)
+
+console.log(e.has(+0))
+
+console.log(+0 === -0)
+
+console.log(e.size)
+
+for (let item of e) console.log(item)
