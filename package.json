@@ -1,33 +1,26 @@
 {
-  "name": "CHUIJS",
+  "name": "chuijs",
   "version": "1.0.0",
-  "description": "chui program test",
+  "description": "nodejs backbone css5 html5",
   "main": "index.js",
-  "dependencies": {
-    "lazyloadjs": "^3.2.1"
-  },
-  "devDependencies": {
-    "gaze": "^0.5.1",
-    "gulp": "*",
-    "gulp-autoprefixer": "*",
-    "gulp-changed": "*",
-    "gulp-connect": "*",
-    "gulp-csso": "*",
-    "gulp-imagemin": "*",
-    "gulp-minify-css": "*",
-    "gulp-plumber": "^1.0.1",
-    "gulp-rename": "*",
-    "gulp-sass": "^2.0.4",
-    "gulp-sourcemaps": "*",
-    "gulp-uglyfly": "*",
-    "gulp.spritesmith": "*",
-    "less-plugin-autoprefix": "*",
-    "less-plugin-clean-css": "*",
-    "merge-stream": "*"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "chuilee",
-  "license": "ISC"
+  "keywords": [
+    "nodejs",
+    "es6",
+    "backbone"
+  ],
+  "author": "CHUILEE",
+  "license": "ISC",
+  "devDependencies": {
+    "underscore": "^1.8.3",
+    "gulp": "*",
+    "gulp-connect": "*",
+    "gulp-minify-css": "*",
+    "gulp-csso": "*",
+    "gulp-rename": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-autoprefixer": "*"
+  }
 }

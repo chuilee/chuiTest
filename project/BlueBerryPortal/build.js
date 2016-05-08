@@ -1,7 +1,7 @@
 ({
-	baseUrl: "../lib/",
-	paths: {
-		js: "../assets/js",
+    baseUrl: "./lib/",
+    paths: {
+        js: "../assets/js",
         jquery: "jquery/dist/jquery-1.11.3.min",
         fullPage: "fullpage.js/jquery.fullPage.min",
         bootstrap: "bootstrap-sass/assets/javascripts/bootstrap.min",
@@ -11,8 +11,8 @@
         text: "requirejs-text/text",
         common: "../common/common",
         loadCorsJson: "../assets/js/loadCorsJson"
-	},
-	// dir:"../production",
-	out: "../js/app/index/index-built.js",
-	name: "../js/app/index/index-content"
+    },
+    // dir:"../production",
+    out: "./js/app/index/content-built.js",
+    name: "../js/app/index/content"
 })

@@ -1,7 +1,7 @@
-require([
+define([
     "underscore",
     "jquery",
-    "loadCorsJson",
+    "js/loadCorsJson",
     "text!templates/index/works.html",
     "text!templates/index/news.html",
     "common",
