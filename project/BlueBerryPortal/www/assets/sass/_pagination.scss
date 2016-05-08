@@ -1,0 +1,64 @@
+#pagenation {
+  overflow: hidden;
+  margin-bottom: 10px;
+  
+  ul, li {
+    float: left;
+    list-style: none;
+    overflow: hidden;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    display: block;
+    margin-right: 5px;
+
+    &.active {
+      a {
+        border-color: #0098f8;
+        color: #0098f8;
+        font-weight: bold;
+      }
+    }
+
+    a {
+      display: block;
+      width: 40px;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #dcdcdc;
+      color: #333;
+      text-align: center;
+
+      &:hover {
+        color: #0098f8;
+      }
+    }
+  }
+
+  .others {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    span {
+      float: left;
+      display: block;
+      height: 30px;
+      line-height: 30px;
+    }
+    input {
+      margin: 0 5px;
+      width: 60px;
+      height: 30px;
+      line-height: 30px;
+    }
+    button {
+      margin-left: 5px;
+      height: 30px;
+      line-height: 24px;
+    }
+  }
+}

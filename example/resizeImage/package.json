@@ -1,0 +1,15 @@
+{
+  "name": "resize-image",
+  "version": "1.0.0",
+  "description": "",
+  "main": "resizeImages.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chuilee",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.13.4",
+    "gm": "^1.22.0"
+  }
+}

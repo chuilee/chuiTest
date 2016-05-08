@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>vue todo</title>
+
+		<!-- Bootstrap CSS -->
+		<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script data-main="../js/views/todos" src="../js/lib/requirejs/require.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="app">
+				<input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="" v-model="newTodo" v-on:keyup.enter="addTodo">
+				<ul class="list-group">
+					<li class="list-group-item" v-for="todo in todos" transition="my-transition">
+						<span>{{ todo.text }}</span>
+						<button v-on:click="removeTodo($index)" class="pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

@@ -29,6 +29,7 @@
     "foundation": "~5.5.2",
     "zepto": "~1.1.6",
     "animate-sass": "~0.6.4",
-    "animate-css": "~3.3.0"
+    "animate-css": "~3.3.0",
+    "underscore": "^1.8.3"
   }
 }

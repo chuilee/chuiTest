@@ -30,3 +30,15 @@ function GetUserInfo(){
 var userInfo = _.bind(GetUserInfo, obj);
 userInfo();
 // new GetUserInfo();
+
+var result=0;
+var _memoize = _.memoize(function(n){
+        console.log(n)
+        return 10
+},function(n){
+    return 11;
+});
+
+var memoize_result = _memoize(6);
+
+console.log(memoize_result);
